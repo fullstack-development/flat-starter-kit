@@ -35,14 +35,14 @@ components
 | |  toggle.pug
 | |  toggle.js
 | |  toggle.styl
-| └─-- img
+| └─── img
 | | |  on.png
 | | |  off.png
 └─── user-profile
 | |  user-profile.pug
 | |  user-profile.js
 | |  user-profile.styl
-| └─-- img
+| └─── img
 | | |  default-avatar.png
 ```
 `components` contains only directories per component. Each component contains `toggle.pug` with the template, `toggle.js` that is dynamically loaded in the `entry.js` and contains all scripts for the component (and only the component). `toggle.styl` should be imported in the `toggle.js` and contains one BEM block in the root of the files and all possible elements and modificators inside this block's definition.
