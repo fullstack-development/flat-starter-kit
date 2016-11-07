@@ -74,5 +74,10 @@ module.exports = new configurator.default().merge({
                 loader: 'file?name=[path][name].[ext]'
             }
         ]
+    },
+    devServer: {
+        inline: true,
+        hot: true,
+        contentBase: 'dist'
     }
 });

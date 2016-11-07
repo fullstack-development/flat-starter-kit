@@ -24,7 +24,7 @@
       "env": {
         "NODE_PATH": ".",
         "NODE_ENV": "development",
-        "PORT": 3000
+        "PORT": 8080
       }
     }
   },
@@ -60,6 +60,7 @@
     "html-webpack-plugin": "^2.24.1",
     "jquery": "^3.1.1",
     "pug": "^2.0.0-beta6",
+    "pug-html-loader": "^1.0.9",
     "pug-loader": "^2.3.0",
     "style-loader": "^0.13.1",
     "stylus": "^0.54.5",
@@ -67,6 +68,7 @@
     "webpack": "^2.1.0-beta.25",
     "webpack-config": "^6.2.1",
     "webpack-dev-middleware": "^1.8.4",
+    "webpack-dev-server": "^1.16.2",
     "webpack-hot-middleware": "^2.13.1"
   }
 }

@@ -1,13 +1,17 @@
 include ./components/user-profile/user-profile
+-
+    var data = {
+        profile: {
+            name: 'John Doe',
+            profession: 'UX designer',
+            photo: 'user-profile/img/face1.jpg',
+            facebook: 'https://fb.com'
+        }
+    }
 
 html
     head
         title Profile Page
         meta(charset = 'utf-8')
     body
-        +user-profile({
-            name: 'John Doe',
-            profession: 'UX designer',
-            photo: 'user-profile/img/face1.jpg',
-            facebook: 'https://fb.com'
-        })
+        +user-profile(data.profile)

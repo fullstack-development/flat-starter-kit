@@ -4,8 +4,8 @@ const webpack = require('webpack');
 const webpackConfig = require('./webpack.config');
 const compiler = webpack(webpackConfig);
 
-const host = 'localhost';
-const port = 3000;
+const host = process.env.HOST || 'localhost';
+const port = process.env.PORT || 3000;
 const serverOptions = {
   contentBase: 'http://' + host + ':' + port,
   quiet: true,
