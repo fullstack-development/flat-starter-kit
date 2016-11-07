@@ -1,0 +1,93 @@
+@require 'theme/variables'
+
+user-profile_height = 7.8rem
+
+.user-profile
+  position relative
+
+  display inline-flex
+  align-items stretch
+
+  width user-profile_height
+  height user-profile_height
+  border-radius 50%
+
+  &__frame
+    display flex
+    align-items stretch
+
+    overflow hidden
+    width 100%
+    border 0.4rem solid #e5e5e5
+    border-radius 50%
+    background no-repeat center center white
+    background-image url("./img/user-default.png")
+    background-size cover
+
+  &__photo
+    width 100%
+    border-radius 50%
+
+  &__tooltip
+    display flex
+    flex-direction column
+    justify-content center
+    visibility hidden
+
+    position absolute
+    left 100%
+    z-index 2
+    margin-left 10%
+
+    min-width 174%
+    height 100%
+    padding 0.85rem 0
+    border-radius 7px
+    background-color color-first
+    color white
+    transition visibility 0s ease-in 0.1s
+
+    &::after
+      content ''
+      display block
+      position absolute
+      background-color inherit
+      transform rotate(45deg)
+      width 0.7rem
+      height 0.7rem
+      left -0.3rem
+      border-bottom-left-radius 3px
+
+    &:hover
+      visibility visible
+
+    &_active
+      background-color #e5e5e5
+      color #4f4f4f
+
+      & .user-profile__name
+        color color-second
+
+  &:hover &__tooltip
+      visibility visible
+
+  &__name
+    font-family LatoRegular
+    font-size 1.5rem
+
+  &__profession
+    font-family LatoBlack
+    font-size 0.95rem
+    text-transform uppercase
+
+  &__social-container
+    font-size 2.3rem
+    flex-basis 100%
+    display flex
+    justify-content space-between
+    align-items flex-end
+    padding 0 20%
+
+  &__social_active
+      color color-second
+      cursor pointer

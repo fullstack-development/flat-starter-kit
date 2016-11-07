@@ -5,14 +5,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 
 module.exports = new configurator.default().merge({
-    entry: {
-        app: [
-            './src/entry.js'
-        ],
-    },
+    entry: './src/entry.js',
     output: {
         filename: '[name].js',
-        path: __dirname + '/dist',
+        path: path.resolve(__dirname, '..', 'dist'),
+        publicPath: '/static/'
     },
     resolve: {
         modules: [
@@ -24,7 +21,8 @@ module.exports = new configurator.default().merge({
         new webpack.DefinePlugin({
             NODE_ENV: JSON.stringify(process.env.NODE_ENV)
         }),
-        new HtmlWebpackPlugin({filename: 'index.html', template: './src/main.pug'}),
+        new HtmlWebpackPlugin({filename: 'home.html', template: './src/pages/home.pug'}),
+        new HtmlWebpackPlugin({filename: 'profile.html', template: './src/pages/profile.pug'}),
         new webpack.ProgressPlugin(),
     ],
     module: {
@@ -33,8 +31,7 @@ module.exports = new configurator.default().merge({
                 test: /\.js$/,
                 loader: 'babel',
                 exclude: [
-                    /node_modules/,
-                    /jquery-ui.js/
+                    /node_modules/
                 ],
                 query: {
                     presets: ['es2015']
@@ -49,10 +46,8 @@ module.exports = new configurator.default().merge({
                   {
                     loader: 'css',
                     options: {
-                      modules: true,
                       importLoaders: 2,
                       sourceMap: true,
-                      localIdentName: '[local]___[hash:base64:5]',
                     }
                   },
                   {
@@ -65,7 +60,7 @@ module.exports = new configurator.default().merge({
                     loader: 'stylus',
                     options: {
                       sourceMap: true,
-                      paths: [path.resolve(__dirname, '..', './src')]
+                      paths: [path.resolve(__dirname, '..', 'src')]
                     }
                   },
                 ]

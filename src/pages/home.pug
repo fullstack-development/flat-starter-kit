@@ -1,0 +1,28 @@
+include ./components/user-profile/user-profile
+include ./components/toggle/toggle
+
+html
+    head
+        title Flat Starter Kit
+        meta(charset = 'utf-8')
+    body
+        +toggle({
+            textOn: true,
+            state: true
+        })
+        +user-profile({
+            name: 'Sarah Brown',
+            profession: 'developer'
+        })
+        +user-profile({
+            name: 'John Smith',
+            profession: 'ux designer',
+            photo: 'user-profile/img/face1.jpg',
+            facebook: 'https://fb.com'
+        })
+        +user-profile({
+            name: 'Sarah Brown',
+            profession: 'developer',
+            photo: 'user-profile/img/face2.jpg',
+            twitter: 'https://twitter.com'
+        })

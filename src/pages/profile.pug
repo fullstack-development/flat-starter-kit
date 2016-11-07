@@ -1,0 +1,13 @@
+include ./components/user-profile/user-profile
+
+html
+    head
+        title Profile Page
+        meta(charset = 'utf-8')
+    body
+        +user-profile({
+            name: 'John Doe',
+            profession: 'UX designer',
+            photo: 'user-profile/img/face1.jpg',
+            facebook: 'https://fb.com'
+        })
