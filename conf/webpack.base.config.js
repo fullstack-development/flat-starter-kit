@@ -60,7 +60,11 @@ module.exports = new configurator.default().merge({
                     loader: 'stylus',
                     options: {
                       sourceMap: true,
-                      paths: [path.resolve(__dirname, '..', 'src')]
+                      paths: [path.resolve(__dirname, '..', 'src')],
+                      import: [
+                        // make this files global, so all styl files will be visible without includes
+                        path.resolve(__dirname, '../src/theme/variables.styl'),
+                      ]
                     }
                   },
                 ]

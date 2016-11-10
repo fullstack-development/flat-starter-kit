@@ -2,7 +2,6 @@
   "name": "fsd-flat-starter-kit",
   "version": "1.0.0",
   "description": "Starter Kit for simple HTML+CSS pages (flat-pages) built by FSD team",
-  "main": "server.js",
   "engines": {
     "node": ">=7.0.0"
   },
@@ -20,9 +19,9 @@
       }
     },
     "start-dev": {
-      "command": "node ./server.js",
+      "command": "./node_modules/.bin/webpack-dev-server",
       "env": {
-        "NODE_PATH": ".",
+        "NODE_PATH": "./src",
         "NODE_ENV": "development",
         "PORT": 8080
       }
