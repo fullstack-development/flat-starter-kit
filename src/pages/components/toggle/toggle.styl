@@ -10,6 +10,9 @@ toggle_height = 2rem
   border-radius (toggle_height / 2)
   background-color #e5e5e5
   transition background-color 0.2s ease-in
+  -webkit-user-select none
+  -moz-user-select none
+  -ms-user-select none
 
   &__text
     position: absolute;
@@ -38,7 +41,9 @@ toggle_height = 2rem
     float left
     overflow hidden
     width 50%
-    font-family LatoBlack
+    font-family LatoBlack, sans-serif
+    font-weight bold
+    text-align center
     font-size (toggle_height / 2)
     text-transform uppercase
     color white

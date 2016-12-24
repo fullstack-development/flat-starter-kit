@@ -4,7 +4,7 @@ user-profile_height = 7.8rem
   position relative
 
   display inline-flex
-  align-items stretch
+  align-items center
 
   width user-profile_height
   height user-profile_height
@@ -16,11 +16,12 @@ user-profile_height = 7.8rem
 
     overflow hidden
     width 100%
+    height 100%
     border 0.4rem solid #e5e5e5
     border-radius 50%
-    background no-repeat center center white
-    background-image url("./img/default-avatar.png")
-    background-size cover
+    background url('./img/default-avatar.png') no-repeat center center
+    background-size 86%
+    background-color white
 
   &__photo
     width 100%
@@ -38,14 +39,15 @@ user-profile_height = 7.8rem
     margin-left 10%
 
     min-width 174%
-    height 100%
-    padding 0.85rem 0
-    border-radius 7px
+    max-width 200%
+    min-height 100%
+    padding 0.85rem
+    border-radius 0.6rem
     background-color color-first
     color white
     transition visibility 0s ease-in 0.1s
 
-    &::after
+    &::before
       content ''
       display block
       position absolute
@@ -54,7 +56,7 @@ user-profile_height = 7.8rem
       width 0.7rem
       height 0.7rem
       left -0.3rem
-      border-bottom-left-radius 3px
+      border-bottom-left-radius 0.25rem
 
     &:hover
       visibility visible
@@ -67,25 +69,49 @@ user-profile_height = 7.8rem
         color color-second
 
   &:hover &__tooltip
-      visibility visible
+    visibility visible
 
   &__name
-    font-family LatoRegular
+    overflow hidden
+    text-overflow ellipsis
+    text-align center
+    font-family LatoRegular, sans-serif
     font-size 1.5rem
 
   &__profession
-    font-family LatoBlack
+    overflow hidden
+    text-overflow ellipsis
+    text-align center
+    font-family LatoBlack, sans-serif
+    font-weight bold
     font-size 0.95rem
     text-transform uppercase
 
   &__social-container
-    font-size 2.3rem
     flex-basis 100%
     display flex
     justify-content space-between
     align-items flex-end
     padding 0 20%
+    padding-top 0.4rem
 
-  &__social_active
+  &__social
+    font-family FontAwesome
+    font-size 2.3rem
+    text-decoration none
+
+    &_active
       color color-second
       cursor pointer
+
+    &_facebook::after
+      display block
+      content '\f09a'
+
+    &_twitter::after
+      display block
+      content '\f099'
+
+    &_instagram::after
+      display block
+      content '\f16d'

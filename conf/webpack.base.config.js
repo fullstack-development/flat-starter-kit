@@ -29,7 +29,7 @@ module.exports = new configurator.default().merge({
         rules: [
             {
                 test: /\.js$/,
-                loader: 'babel',
+                loader: 'babel-loader',
                 exclude: [
                     /node_modules/
                 ],
@@ -41,29 +41,30 @@ module.exports = new configurator.default().merge({
                 test: /\.styl/,
                 use: [
                   {
-                    loader: 'style',
+                    loader: 'style-loader',
                   },
                   {
-                    loader: 'css',
+                    loader: 'css-loader',
                     options: {
                       importLoaders: 2,
                       sourceMap: true,
                     }
                   },
                   {
-                    loader: 'autoprefixer',
+                    loader: 'autoprefixer-loader',
                     options: {
                       browsers:'last 2 version',
                     }
                   },
                   {
-                    loader: 'stylus',
+                    loader: 'stylus-loader',
                     options: {
                       sourceMap: true,
                       paths: [path.resolve(__dirname, '..', 'src')],
                       import: [
                         // make this files global, so all styl files will be visible without includes
                         path.resolve(__dirname, '../src/theme/variables.styl'),
+                        path.resolve(__dirname, '../src/theme/global.styl'),
                       ]
                     }
                   },
@@ -71,11 +72,11 @@ module.exports = new configurator.default().merge({
             },
             {
                 test: /\.pug$/,
-                loader: 'pug'
+                loader: 'pug-loader'
             },
             {
                 test: /\.(png|jpg|svg|ttf|eot|woff|woff2)$/,
-                loader: 'file?name=[path][name].[ext]'
+                loader: 'file-loader?name=[path][name].[ext]'
             }
         ]
     },
