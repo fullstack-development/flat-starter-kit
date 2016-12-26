@@ -1,0 +1,123 @@
+include components/layout/layout
+include components/button/button
+include components/arrow-button/arrow-button
+include components/percentage/percentage
+include components/pie-chart/pie-chart
+include components/slider/slider
+include components/stages/stages
+include components/feedback/feedback
+include components/toggle/toggle
+include components/tick-box/tick-box
+include components/search/search
+include components/user-profile/user-profile
+include components/drop-down/drop-down
+include components/news/news
+include components/event/event
+include components/location/location
+include components/calendar/calendar
+include components/messager/messager
+
+-
+  var user_SarahBrown = {
+    name: 'Sarah Brown',
+    profession: 'developer',
+    photo: 'face2.jpg',
+    twitter: 'https://vk.com'
+  }
+
+html
+  head
+    title Flat Starter Kit
+    meta(charset = 'utf-8')
+  body
+    +layout()
+      h2 standard buttons
+      +button({size: 'small'})
+      +button()
+      +button({type: 'error'})
+      +button({type: 'error', size: 'small'})
+      h2 arrow buttons
+      +arrow-button({direction: 'left', condition: 'inactive'})
+      +arrow-button({direction: 'right', condition: 'inactive'})
+      +arrow-button({direction: 'left', condition: 'disabled'})
+      +arrow-button({direction: 'right', condition: 'disabled'})
+      +arrow-button({direction: 'left'})
+      +arrow-button({direction: 'right'})
+      h2 percentages / pie chart
+      +percentage()
+      +percentage({percent: 38})
+      +percentage({percent: 62})
+      +percentage({percent: 89})
+      +pie-chart({items: [1, 3, 4, 5]})
+    +layout()
+      h2 sliders
+      +layout__left-column()
+        +slider({tooltipEnabled: true, color: '#4eb7a8'})
+      +layout__right-column()
+        +slider({scaleEnabled: true, color: '#e75735'})
+    +layout()
+      h2 stages
+      +stages({length: 5, progress: 3})
+    +layout()
+      h2 form elements
+      +layout__left-column()
+        +feedback()
+      +layout__right-column()
+        h2 toggles
+        +toggle()
+        +toggle({state: true, textOn: 'yes', textOff: 'no'})
+        h2 tick boxes
+        +tick-box()
+        +tick-box({enabled: true})
+    +layout()
+      +layout__left-column()
+        h2 search / drop down
+        +search()
+        +drop-down({items: ["Choose an option", "First option", "Second option", "Third option"]})
+      +layout__right-column()
+        h2 user profile
+        +user-profile({
+          name: 'Sarah Brown',
+          profession: 'developer'
+        })
+        +user-profile({
+          name: 'John Smith',
+          profession: 'ux designer',
+          photo: 'face1.jpg',
+          facebook: 'https://vk.com'
+        })
+        +user-profile(user_SarahBrown)
+    +layout()
+      h2 news & events
+      +layout__left-column()
+        +news({
+          image: "img1.jpg",
+          title: "It's all going downhill",
+          date: "24 august 2013",
+          desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit," +
+          " sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        })
+      +layout__right-column()
+        +event({
+          image: "img1.jpg",
+          title: "This is the title",
+          dateDay: "24",
+          dateMonth: "August",
+          desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        })
+    +layout()
+      h2 location
+      +location({
+        coord: [56.4531907, 84.9756513],
+        adress: "Tomsk, Krasnoarmeyskaya, 147<br/> office 201"
+      })
+    +layout()
+      +layout__left-column
+        h2 calendar
+        +calendar()
+      +layout__right-column
+        h2 messaging
+        +messager({
+          user: user_SarahBrown,
+          messages: [true, 'Hey! So are we cool to meet at the art gallery? Say 8pm', false, 'Ok))']
+        })

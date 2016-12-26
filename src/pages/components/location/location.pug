@@ -1,0 +1,15 @@
+//-
+  options.coord - массив c координатами ( [X, Y] )
+  options.adress - адрес
+
+mixin location(options)
+  if !options
+    - options = {}
+
+  .location.js-location(data-coord= JSON.stringify(options.coord || []))
+    .location__widget.js-location__widget
+    .location__info
+      span.location__slogan Meet us!
+      .location__adress!= options.adress || ''
+      .location__icon.location__icon_crosshairs
+      .location__icon.location__icon_map-marker

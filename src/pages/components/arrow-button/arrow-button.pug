@@ -1,0 +1,10 @@
+//-
+  options.direction - направление стрелки ('left', 'right')
+  options.condition - состояние кнопки ('', 'condition', 'disabled')
+
+mixin arrow-button(options)
+  if !options
+    - options = {}
+
+  button.arrow-button(class = options.condition ? 'arrow-button_' + options.condition : '')
+    .arrow-button__arrow(class = options.direction ? 'arrow-button__arrow_' + options.direction : 'arrow-button__arrow_left')

@@ -1,0 +1,46 @@
+.location
+  position relative
+  overflow hidden
+  border-radius 0.3rem
+  z-index 3000
+
+  &__widget
+    height 22%
+
+  &__info
+    display flex
+    align-items center
+    font-family LatoLight, sans-serif
+    font-size 2.5rem
+    background-color color-second
+    color white
+
+    & > *:first-child
+      flex-shrink  0
+      padding-left 4.5%
+
+    & > *
+      padding 3% 2%
+
+    & > *:last-child
+      flex-basis 0
+      padding-right 4.5%
+
+  &__adress
+    flex-basis 100%
+    font-family LatoBlack, sans-serif
+    font-weight bold
+    font-size 1.1rem
+    text-transform uppercase
+    text-align left
+
+  &__icon
+    font-family FontAwesome
+
+    &_crosshairs::before
+      display block
+      content '\f05b'
+
+    &_map-marker::before
+      display block
+      content '\f041'

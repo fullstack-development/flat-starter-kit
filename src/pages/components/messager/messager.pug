@@ -1,0 +1,44 @@
+//-
+  options.user - объект с данными пользователя идентичный передаваемому в User-profile
+  options.messages - массив сообщений.
+    messages[0, 2, 4, ...] - флаг, если true, то сообщение входящее,
+    messages[1, 3, 5, ...] - текст сообщения
+
+include ../user-profile/user-profile
+include ../button/button
+
+mixin messager(options)
+  if !options
+    - options = {}
+  if !options.user
+    - options.user = {}
+  if !options.messages
+    - options.messages = []
+
+  .messager.js-messager
+    .messager__user
+      .messager__user-name #{options.user.name}
+      .messager__user-profile
+        .messager__user-profile-vert-aligner
+          +user-profile(options.user)
+    .messager__body
+      .messager__links
+        a(
+          href = '/mock-address/change-me'
+          target = '_blank'
+          rel = 'noopener noreferrer'
+        ).messager__link-message
+        a(
+          href = '/mock-address/change-me'
+          target = '_blank'
+          rel = 'noopener noreferrer'
+        ).messager__link-photo
+      .messager__chat-wrapper
+        .messager__chat-scroller.js-messager__chat-scroller
+          .messager__chat.js-messager__chat
+            - for (var i = 0; i < options.messages.length; i = i + 2)
+              .messager__message(class = options.messages[i] ? 'messager__message_in' : 'messager__message_out')
+                span #{options.messages[i + 1]}
+      textarea.messager__input.js-messager__input
+      .messager__btn-submit.js-messager__btn-submit
+        +button({text: "reply"})

@@ -1,0 +1,82 @@
+.feedback
+
+  &__form
+
+    & > *:not(:first-child)
+      margin-top 1rem
+
+  &__name
+  &__email
+    display flex
+    align-items stretch
+
+  &__input-text
+  &__input-email
+  &__textarea
+    display block
+    width 100%
+    background-color #e5e5e5
+    color #888888
+    font-size 1.2rem
+    font-family SourceSansProRegular, sans-serif
+    padding 0.43rem 1rem
+    border none
+    border-radius 4px
+    resize none
+
+    &:focus
+      outline: 0.3rem auto #4d90fe
+
+  &__textarea
+    min-height 7.3rem
+    padding-top 0.8rem
+    width 100%
+
+  &__validation
+    position relative
+    display flex
+    justify-content center
+    align-items center
+    border-radius 4px
+    min-width 6rem
+    margin-left 3%
+
+    &::after
+      content ''
+      display block
+      position absolute
+      background-color inherit
+      transform rotate(45deg)
+      width 0.5rem
+      height 0.5rem
+      left -0.25rem
+      border-bottom-left-radius 1px
+
+  &__validation-ok
+  &__validation-error
+    text-transform uppercase
+    font-family LatoBlack, sans-serif
+    font-weight bold
+    font-size 0.9rem
+    color white
+
+  &__input-text
+  &__input-email
+    &:valid + .feedback__validation
+      background-color color-first
+
+      & .feedback__validation-ok
+        display inline
+      & .feedback__validation-error
+        display none
+
+    &:invalid + .feedback__validation
+      background-color color-second
+
+      & .feedback__validation-ok
+        display none
+      & .feedback__validation-error
+        display inline
+
+  &__submit
+    text-align right

@@ -1,0 +1,38 @@
+.percentage
+  position relative
+  display inline-block
+  width 95px
+  text-align center
+  -webkit-user-select none
+  -moz-user-select none
+  -ms-user-select none
+
+  &__active-border
+    position relative
+    background-color color-second
+    border-radius 50%
+    background-image: linear-gradient(90deg, transparent 50%, #fff 50%), linear-gradient(90deg, #fff 50%, transparent 50%);
+
+    &::before
+      content ""
+      display block
+      padding-top 100%
+
+  &__mask-circle
+    display flex
+    justify-content center
+    align-items center
+    position absolute
+    top 0
+    left 0
+    right 0
+    bottom 0
+    background-color white
+    border-radius 50%
+    margin 5%
+
+  &__percent
+    font-size 3.25rem
+    margin-top 4px
+    color #9d9d9d
+    font-family LatoLight, sans-serif

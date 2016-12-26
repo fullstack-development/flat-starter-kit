@@ -23,6 +23,7 @@ module.exports = new configurator.default().merge({
         }),
         new HtmlWebpackPlugin({filename: 'home.html', template: './src/pages/home.pug'}),
         new HtmlWebpackPlugin({filename: 'profile.html', template: './src/pages/profile.pug'}),
+        new HtmlWebpackPlugin({filename: 'demo.html', template: './src/pages/demo.pug'}),
         new webpack.ProgressPlugin(),
     ],
     module: {

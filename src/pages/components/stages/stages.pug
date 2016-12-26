@@ -1,0 +1,19 @@
+//-
+  options.length - количество стадий
+  options.progress - количество завершенных стадий
+
+mixin stages(options)
+  if !options
+    - options = {}
+
+  -
+    if (!options.length || options.length < 2) options.length = 2
+    if (!options.progress || options.progress <= 0) options.progress = 1
+    if (options.progress > options.length) options.progress = options.length
+
+  .stages.js-stages(data-progress = options.progress)
+    .stages__progress-bar
+      .stages__progress.js-stages__progress
+    .stages__items
+      - for (var i = 0; i < options.length; i++)
+        .stages__item.js-stages__item(class = (options.progress > i) ? 'stages__item_completed' : '') #{i + 1}

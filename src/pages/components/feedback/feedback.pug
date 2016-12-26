@@ -1,0 +1,35 @@
+include ../button/button
+
+mixin feedback__validation()
+  .feedback__validation
+    span.feedback__validation-ok thanks!
+    span.feedback__validation-error error
+
+mixin feedback()
+  .feedback
+    form.feedback__form
+      .feedback__name
+        input.feedback__input-text(
+          tabindex = 1
+          name = 'feedback-name'
+          type = 'text'
+          placeholder = 'Your Name'
+          pattern = '^[A-Za-zА-Яа-яЁё\\s]+$'
+        )
+        +feedback__validation()
+      .feedback__email
+        input.feedback__input-email(
+          tabindex = 2
+          name = 'feedback-email'
+          type = 'email'
+          placeholder = 'Your Email'
+          required
+        )
+        +feedback__validation()
+      textarea.feedback__textarea(
+        tabindex = 3
+        name = 'feedback-message'
+        placeholder = 'Your Message'
+      )
+      .feedback__submit
+        +button({text: 'submit', isSubmit: true, tabindex: 4})

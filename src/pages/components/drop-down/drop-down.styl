@@ -1,0 +1,36 @@
+.drop-down
+  display flex
+  align-items stretch
+  position relative
+
+  &__select-box
+    width 100%
+    background-color #e5e5e5
+    color #888888
+    padding 0.3rem 0.8rem
+    border none
+    border-top-left-radius 3px
+    border-bottom-left-radius 3px
+    font-size 1.2rem
+    font-family SourceSansProRegular, sans-serif
+
+    &:focus
+      outline none
+
+  &::before
+    content "\f107"
+    font-family FontAwesome
+    position absolute
+    right 0
+    top 0
+    bottom 0
+    display flex
+    justify-content center
+    align-items center
+    width 2.75rem
+    background-color color-first
+    color white
+    border-top-right-radius 3px
+    border-bottom-right-radius 3px
+    font-size 2rem
+    pointer-events none

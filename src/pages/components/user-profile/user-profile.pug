@@ -13,7 +13,7 @@ mixin user-profile(options)
   .user-profile
     .user-profile__frame
       if options.photo
-        img.user-profile__photo(src=require('./components/' + options.photo), alt = 'photo')
+        img.user-profile__photo(src=require('./components/user-profile/img/' + options.photo), alt = 'photo')
     .user-profile__tooltip(
     class = (options.facebook || options.twitter || options.instagram) ? 'user-profile__tooltip_active' : ''
     )

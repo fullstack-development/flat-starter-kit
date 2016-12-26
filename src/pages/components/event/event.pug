@@ -1,0 +1,29 @@
+//-
+  options.image - обложка
+  options.title - название
+  options.dateDay - дата
+  options.dateMonth - дата
+  options.desc - описание
+
+include ../button/button
+
+mixin event(options)
+  if !options
+    - options = {}
+
+  .event
+    .event__image-frame
+      if options.image
+        img.event__image(
+          src = require('./components/event/img/' + options.image),
+          alt = 'event image'
+        )
+    .event__preview
+      .event__date
+        .event__day= options.dateDay
+        .event__month= options.dateMonth.slice(0, 3)
+      .event__description
+        .event__title= options.title ? options.title : ''
+        .event__text= options.desc ? options.desc : ''
+      .event__button-add
+        +button({text: "add to calendar", isInverted: true, size: "small"})

@@ -1,0 +1,11 @@
+//- options.items - массив элементов выпадающего списка
+
+mixin drop-down(options)
+  if !options
+    - options = {}
+
+  label.drop-down
+    select.drop-down__select-box
+      if options.items
+        each item in options.items
+          option.drop-down__item #{item}

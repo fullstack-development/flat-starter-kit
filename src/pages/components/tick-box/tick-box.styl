@@ -1,0 +1,24 @@
+tick-box_height = 2rem
+
+.tick-box
+  height tick-box_height
+  width tick-box_height
+  border-radius 50%
+  background-color #e5e5e5
+  color #c0c0c0
+  font-size (tick-box_height * 3 / 5)
+  display inline-flex
+  justify-content center
+  align-items center
+  transition background-color 0.2s, color 0.2s
+
+  &_enable
+    background-color color-first
+    color white
+
+  &__check-icon
+    font-family FontAwesome
+
+    &::after
+      display block
+      content '\f00c'

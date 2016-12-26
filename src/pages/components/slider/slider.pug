@@ -1,0 +1,21 @@
+//-
+  options.tooltipEnabled - наличие подсказки (bool)
+  options.scaleEnabled - наличие шкалы (bool)
+  options.color - цвет слайдера
+
+mixin slider(options)
+  if !options
+    - options = {}
+
+  .slider.js-slider(data-slider-color = options.color || '#4eb7a8')
+    .slider__widget.js-slider__widget
+      .slider__handle.js-slider__handle.ui-slider-handle
+        if options.tooltipEnabled
+          .slider__handle-tooltip.js-slider__handle-tooltip
+    if options.scaleEnabled
+      .slider__scale.js-slider__scale
+        span.slider__scale-item 0
+        span.slider__scale-item 25
+        span.slider__scale-item 50
+        span.slider__scale-item 75
+        span.slider__scale-item 100

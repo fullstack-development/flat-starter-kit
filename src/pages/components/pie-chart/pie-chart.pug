@@ -1,0 +1,15 @@
+//- options.items - массив
+
+mixin pie-chart(options)
+  if !options
+    - options = {}
+  if !options.items
+    - options.items = [ 1 ]
+
+  - var itemsStr = ''
+  each item in options.items
+    - itemsStr += item + ','
+  - itemsStr = itemsStr.slice(0, itemsStr.length - 1)
+
+  .pie-chart
+    span.pie-chart__items.js-pie-chart__items #{itemsStr}

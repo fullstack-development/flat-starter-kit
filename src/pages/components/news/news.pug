@@ -1,0 +1,21 @@
+//-
+  options.image - обложка
+  options.title - название
+  options.date - дата
+  options.desc - описание
+
+mixin news(options)
+  if !options
+    - options = {}
+
+  .news
+    .news__image-frame
+      if options.image
+        img.news__image(
+          src = require('./components/news/img/' + options.image),
+          alt = 'news image'
+        )
+    .news__preview
+      .news__title= options.title ? options.title : ''
+      .news__date= options.date ? options.date : ''
+      .news__description= options.desc ? options.desc : ''

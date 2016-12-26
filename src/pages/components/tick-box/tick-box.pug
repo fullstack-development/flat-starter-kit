@@ -1,0 +1,8 @@
+//- options.enabled - состояние tick-box'а (bool)
+
+mixin tick-box(options)
+  if !options
+    - options = {}
+
+  .tick-box(class = options.enabled ? 'tick-box_enable' : '')
+    .tick-box__check-icon

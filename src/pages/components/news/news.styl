@@ -1,0 +1,58 @@
+.news
+  display flex
+  align-items stretch
+  border-radius 0.3rem
+  height: 17.65rem;
+
+  &__image-frame
+    overflow hidden
+    border-bottom-left-radius 0.3rem
+    border-top-left-radius 0.3rem
+    width 35%
+    background url(./img/default.jpg) no-repeat
+    background-size cover
+    display flex
+    align-items stretch
+
+  &__image
+    max-width 100%
+    max-height 100%
+    object-fit cover
+
+  &__preview
+    display flex
+    flex-direction column
+    align-items stretch
+    justify-content space-around
+    width 65%
+    padding 8% 7.5%
+    border-top-right-radius 0.3rem
+    border-bottom-right-radius 0.3rem
+    background-color color-second
+    color white
+    text-align left
+
+    & > *:not(:first-child)
+      margin-top 4%
+
+  &__title
+    flex-shrink 0
+    font-family LatoLight, sans-serif
+    font-size 2.3rem
+    line-height 2.3rem
+    overflow hidden
+    text-overflow ellipsis
+
+  &__date
+    flex-shrink 0
+    font-family LatoBlack, sans-serif
+    font-weight bold
+    text-transform uppercase
+    overflow hidden
+    text-overflow ellipsis
+
+  &__description
+    font-family LatoRegular, sans-serif
+    flex-basis 100%
+    overflow hidden
+    text-overflow ellipsis

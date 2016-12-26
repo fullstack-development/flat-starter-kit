@@ -1,0 +1,13 @@
+mixin search()
+  .search.js-search
+    form.search__form
+      input.search__text.js-search__text(
+        name = 'search-text'
+        type = 'text'
+        placeholder = 'Search'
+        tabindex = 5
+      )
+      button(
+        type = 'submit'
+        tabindex = 6
+      ).search__submit.js-search__submit
