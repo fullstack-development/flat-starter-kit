@@ -25,6 +25,9 @@ module.exports = new configurator.default().merge({
         new HtmlWebpackPlugin({filename: 'profile.html', template: './src/pages/profile.pug'}),
         new HtmlWebpackPlugin({filename: 'demo.html', template: './src/pages/demo.pug'}),
         new webpack.ProgressPlugin(),
+        new webpack.ProvidePlugin({
+          $: 'jquery'
+        }),
     ],
     module: {
         rules: [
@@ -38,6 +41,21 @@ module.exports = new configurator.default().merge({
                     presets: ['es2015']
                 }
             },
+          {
+            test: /\.css/,
+            use: [
+              {
+                loader: 'style-loader',
+              },
+              {
+                loader: 'css-loader',
+                options: {
+                  importLoaders: 2,
+                  sourceMap: false,
+                }
+              },
+            ]
+          },
             {
                 test: /\.styl/,
                 use: [

@@ -67,10 +67,14 @@
         display none
 
       &::after
-        content '\f104'
+        content '1'
         display block
-        font-family FontAwesome
-        color white
+        color transparent
+        background-color white
+        mask-position center center
+        mask-repeat no-repeat
+        mask-size contain
+        mask-image url(./img/left.svg)
 
     & .ui-datepicker-next
       display flex
@@ -90,10 +94,14 @@
         display none
 
       &::after
-        content '\f105'
+        content '1'
         display block
-        font-family FontAwesome
-        color white
+        color transparent
+        background-color white
+        mask-position center center
+        mask-repeat no-repeat
+        mask-size contain
+        mask-image url(./img/right.svg)
 
     & .ui-datepicker-calendar
       margin 0
