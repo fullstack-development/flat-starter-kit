@@ -68,6 +68,12 @@ user-profile_height = 7.8rem
       & .user-profile__name
         color color-second
 
+      & .user-profile__social
+        background-color #4f4f4f
+
+      & .user-profile__social_active
+        background-color color-second
+
   &:hover &__tooltip
     visibility visible
 
@@ -88,30 +94,29 @@ user-profile_height = 7.8rem
     text-transform uppercase
 
   &__social-container
-    flex-basis 100%
+    height 2.3rem
     display flex
-    justify-content space-between
-    align-items flex-end
-    padding 0 20%
-    padding-top 0.4rem
+    align-items stretch
+    padding 0 10%
+    margin-top auto
+    padding-top 0.3rem
 
   &__social
-    font-family FontAwesome
-    font-size 2.3rem
     text-decoration none
+    background-color white
+    width 100%
+    mask-size contain
+    mask-repeat no-repeat
+    mask-position center center
 
     &_active
-      color color-second
       cursor pointer
 
-    &_facebook::after
-      display block
-      content '\f09a'
+    &_facebook
+      mask-image url(./img/facebook-logo.svg)
 
-    &_twitter::after
-      display block
-      content '\f099'
+    &_twitter
+      mask-image url(./img/twitter-logo.svg)
 
-    &_instagram::after
-      display block
-      content '\f16d'
+    &_instagram
+      mask-image url(./img/instagram-logo.svg)

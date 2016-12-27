@@ -3,7 +3,6 @@
   outline none
   cursor pointer
   background-color color-first
-  color white
   border-radius 50%
   border 3px solid color-first
   font-size 3.5rem
@@ -14,23 +13,34 @@
 
   &_inactive
     background-color white
-    color color-first
+
+    & .arrow-button__arrow
+      background-color color-first
 
   &_disabled
     background-color color-disabled
     border-color color-disabled
 
   &__arrow
-    font-family FontAwesome
+    background-color white
+    mask-position center center
+    mask-repeat no-repeat
+    mask-size contain
+    height 70%
+    weight 70%
 
-    &_left::after
-      display block
+    &_left
+      mask-image url(./img/left.svg)
       margin-left -4px
-      margin-top -2px
-      content '\f104'
 
-    &_right::after
-      display block
+    &_right
+      mask-image url(./img/right.svg)
       margin-right -4px
-      margin-top -2px
-      content '\f105'
+
+    &_up
+      mask-image url(./img/up.svg)
+      margin-top -4px
+
+    &_down
+      mask-image url(./img/down.svg)
+      margin-bottom -4px

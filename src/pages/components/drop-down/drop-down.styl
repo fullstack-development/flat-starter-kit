@@ -17,20 +17,27 @@
     &:focus
       outline none
 
-  &::before
-    content "\f107"
-    font-family FontAwesome
+  &__button
     position absolute
     right 0
     top 0
     bottom 0
     display flex
     justify-content center
-    align-items center
     width 2.75rem
     background-color color-first
-    color white
     border-top-right-radius 3px
     border-bottom-right-radius 3px
     font-size 2rem
     pointer-events none
+
+    &::before
+      display block
+      content "1"
+      color transparent
+      flex-grow 0.5
+      background-color white
+      mask-position center center
+      mask-repeat no-repeat
+      mask-size contain
+      mask-image url(./img/down.svg)

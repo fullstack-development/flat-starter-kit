@@ -27,7 +27,7 @@
       padding-right 4.5%
 
   &__adress
-    flex-basis 100%
+    flex-grow 1
     font-family LatoBlack, sans-serif
     font-weight bold
     font-size 1.1rem
@@ -35,12 +35,20 @@
     text-align left
 
   &__icon
-    font-family FontAwesome
 
     &_crosshairs::before
-      display block
-      content '\f05b'
-
     &_map-marker::before
       display block
-      content '\f041'
+      content '1'
+      color transparent
+      width 2rem
+      mask-position center center
+      mask-repeat no-repeat
+      mask-size contain
+      background-color white
+
+    &_crosshairs::before
+      mask-image url(./img/crosshair.svg)
+
+    &_map-marker::before
+      mask-image url(./img/map-marker.svg)

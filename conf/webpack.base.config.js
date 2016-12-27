@@ -48,7 +48,7 @@ module.exports = new configurator.default().merge({
                     loader: 'css-loader',
                     options: {
                       importLoaders: 2,
-                      sourceMap: true,
+                      sourceMap: false,
                     }
                   },
                   {
@@ -65,7 +65,6 @@ module.exports = new configurator.default().merge({
                       import: [
                         // make this files global, so all styl files will be visible without includes
                         path.resolve(__dirname, '../src/theme/variables.styl'),
-                        path.resolve(__dirname, '../src/theme/global.styl'),
                       ]
                     }
                   },

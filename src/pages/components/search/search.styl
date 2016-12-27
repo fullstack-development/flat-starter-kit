@@ -41,12 +41,8 @@
 
   &__submit
     display flex
-    justify-content center
-    align-items center
-    font-family FontAwesome
     width 3.2rem
     background-color color-second
-    color white
     border none
     border-top-right-radius 3px
     border-bottom-right-radius 3px
@@ -54,6 +50,13 @@
     &:focus
       outline: 0.3rem auto #4d90fe
 
-    &::after
+    &::before
       display block
-      content '\f002'
+      content "1"
+      color transparent
+      flex-grow 1
+      background-color white
+      mask-position center center
+      mask-repeat no-repeat
+      mask-size contain
+      mask-image url(./img/glass-finder.svg)

@@ -5,7 +5,6 @@ tick-box_height = 2rem
   width tick-box_height
   border-radius 50%
   background-color #e5e5e5
-  color #c0c0c0
   font-size (tick-box_height * 3 / 5)
   display inline-flex
   justify-content center
@@ -14,11 +13,15 @@ tick-box_height = 2rem
 
   &_enable
     background-color color-first
-    color white
+
+    & .tick-box__check-icon
+      background-color white
 
   &__check-icon
-    font-family FontAwesome
-
-    &::after
-      display block
-      content '\f00c'
+    background-color #c0c0c0
+    height 60%
+    width 60%
+    mask-position center center
+    mask-repeat no-repeat
+    mask-size contain
+    mask-image url(./img/check.svg)
