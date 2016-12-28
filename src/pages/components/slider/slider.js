@@ -1,5 +1,7 @@
 import './slider.styl';
 import $ from 'jquery';
+import { importJqueryUI } from '../../../plugins/index';
+importJqueryUI();
 
 $(function() {
 

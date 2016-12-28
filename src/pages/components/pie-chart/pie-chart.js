@@ -1,5 +1,7 @@
 import './pie-chart.styl';
 import $ from 'jquery';
+import { importJqueryPeity } from '../../../plugins/index';
+importJqueryPeity();
 
 $(function() {
 
