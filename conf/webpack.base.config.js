@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const configurator = require('webpack-config');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const SpritesmithPlugin = require('webpack-spritesmith');
 
 module.exports = new configurator.default().merge({
     entry: './src/entry.js',
@@ -29,6 +30,19 @@ module.exports = new configurator.default().merge({
         new webpack.ProvidePlugin({
           $: 'jquery'
         }),
+        new SpritesmithPlugin({
+          src: {
+            cwd: path.resolve(__dirname, '../src/components/'),
+            glob: '**/*.png',
+          },
+          target: {
+            image: path.resolve(__dirname, '../src/theme/sprite-generated/sprite.png'),
+            css: path.resolve(__dirname, '../src/theme/sprite-generated/sprite.styl'),
+          },
+          apiOptions: {
+            cssImageRef: "~theme/sprite-generated/sprite.png"
+          }
+        })
     ],
     module: {
         rules: [
