@@ -14,14 +14,12 @@ tick-box_height = 2rem
   &_enable
     background-color color-first
 
-    & .tick-box__check-icon
-      background-color white
+    & .tick-box__check-icon svg path
+      fill white
 
   &__check-icon
-    background-color #c0c0c0
     height 60%
     width 60%
-    mask-position center center
-    mask-repeat no-repeat
-    mask-size contain
-    mask-image url(./img/check.svg)
+
+    & svg path
+      fill #c0c0c0

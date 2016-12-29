@@ -47,29 +47,12 @@
     font-size 1.7rem
     padding 0 1%
 
-  &__link-message
-  &__link-photo
+  &__link
     text-decoration none
     width 2rem
 
-  &__link-message::before
-  &__link-photo::before
-    background-color #8e8d8d
-    mask-position center center
-    mask-repeat no-repeat
-    mask-size contain
-
-  &__link-message::before
-    display block
-    content '1'
-    color transparent
-    mask-image url(./img/message.svg)
-
-  &__link-photo::before
-    display block
-    content '1'
-    color transparent
-    mask-image url(./img/photo-camera.svg)
+    & svg path
+      fill #8e8d8d
 
   &__chat-wrapper
     overflow hidden

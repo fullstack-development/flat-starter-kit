@@ -27,12 +27,14 @@ mixin messager(options)
           href = '/mock-address/change-me'
           target = '_blank'
           rel = 'noopener noreferrer'
-        ).messager__link-message
+        ).messager__link
+          include ./img/message.svg
         a(
           href = '/mock-address/change-me'
           target = '_blank'
           rel = 'noopener noreferrer'
-        ).messager__link-photo
+        ).messager__link
+          include ./img/photo-camera.svg
       .messager__chat-wrapper
         .messager__chat-scroller.js-messager__chat-scroller
           .messager__chat.js-messager__chat

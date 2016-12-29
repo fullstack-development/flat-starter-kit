@@ -41,6 +41,7 @@
 
   &__submit
     display flex
+    justify-content center
     width 3.2rem
     background-color color-second
     border none
@@ -50,13 +51,8 @@
     &:focus
       outline: 0.3rem auto #4d90fe
 
-    &::before
-      display block
-      content "1"
-      color transparent
-      flex-grow 1
-      background-color white
-      mask-position center center
-      mask-repeat no-repeat
-      mask-size contain
-      mask-image url(./img/glass-finder.svg)
+  &__submit-icon
+    width 60%
+
+    & svg path
+      fill white

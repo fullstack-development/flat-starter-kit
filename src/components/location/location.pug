@@ -11,5 +11,7 @@ mixin location(options)
     .location__info
       span.location__slogan Meet us!
       .location__adress!= options.adress || ''
-      .location__icon.location__icon_crosshairs
-      .location__icon.location__icon_map-marker
+      .location__icon
+        include ./img/crosshair.svg
+      .location__icon
+        include ./img/map-marker.svg

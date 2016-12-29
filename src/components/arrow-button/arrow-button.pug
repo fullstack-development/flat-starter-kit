@@ -8,3 +8,12 @@ mixin arrow-button(options)
 
   button.arrow-button(class = options.condition ? 'arrow-button_' + options.condition : '')
     .arrow-button__arrow(class = options.direction ? 'arrow-button__arrow_' + options.direction : 'arrow-button__arrow_left')
+      case options.direction
+        when 'left'
+          include ./img/left.svg
+        when 'right'
+          include ./img/right.svg
+        when 'up'
+          include ./img/up.svg
+        when 'down'
+          include ./img/down.svg

@@ -14,33 +14,28 @@
   &_inactive
     background-color white
 
-    & .arrow-button__arrow
-      background-color color-first
+    & .arrow-button__arrow svg path
+      fill color-first
 
   &_disabled
     background-color color-disabled
     border-color color-disabled
 
   &__arrow
-    background-color white
-    mask-position center center
-    mask-repeat no-repeat
-    mask-size contain
     height 70%
     weight 70%
 
+    & svg path
+      fill white
+
     &_left
-      mask-image url(./img/left.svg)
       margin-left -4px
 
     &_right
-      mask-image url(./img/right.svg)
       margin-right -4px
 
     &_up
-      mask-image url(./img/up.svg)
       margin-top -4px
 
     &_down
-      mask-image url(./img/down.svg)
       margin-bottom -4px

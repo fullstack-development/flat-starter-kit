@@ -23,8 +23,7 @@
       padding 3% 2%
 
     & > *:last-child
-      flex-basis 0
-      padding-right 4.5%
+      margin-right 2.5%
 
   &__adress
     flex-grow 1
@@ -35,20 +34,7 @@
     text-align left
 
   &__icon
+    width 8.5%
 
-    &_crosshairs::before
-    &_map-marker::before
-      display block
-      content '1'
-      color transparent
-      width 2rem
-      mask-position center center
-      mask-repeat no-repeat
-      mask-size contain
-      background-color white
-
-    &_crosshairs::before
-      mask-image url(./img/crosshair.svg)
-
-    &_map-marker::before
-      mask-image url(./img/map-marker.svg)
+    & svg path
+      fill white
