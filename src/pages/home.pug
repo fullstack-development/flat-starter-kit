@@ -1,38 +1,38 @@
+extends ./base
+
 include ../components/user-profile/user-profile
 include ../components/toggle/toggle
 
--
+block title
+  | Home Page
+
+block body
+  -
     var data = {
-        isToggleEnabled: true,
-        profiles: [
-            {
-                name: 'Sarah Brown',
-                profession: 'developer'
-            },
-            {
-                name: 'John Smith',
-                profession: 'ux designer',
-                photo: 'face1.jpg',
-                facebook: 'https://fb.com'
-            },
-            {
-                name: 'Sarah Brown',
-                profession: 'developer',
-                photo: 'face2.jpg',
-                twitter: 'https://twitter.com'
-            }
-        ]
+      isToggleEnabled: true,
+      profiles: [
+        {
+          name: 'Sarah Brown',
+          profession: 'developer'
+        },
+        {
+          name: 'John Smith',
+          profession: 'ux designer',
+          photo: 'face1.jpg',
+          facebook: 'https://fb.com'
+        },
+        {
+          name: 'Sarah Brown',
+          profession: 'developer',
+          photo: 'face2.jpg',
+          twitter: 'https://twitter.com'
+        }
+      ]
     }
 
-
-html
-    head
-        title Flat Starter Kit
-        meta(charset = 'utf-8')
-    body
-        if data.isToggleEnabled
-            +toggle({
-                state: true
-            })
-        for profile in data.profiles
-            +user-profile(profile)
+  if data.isToggleEnabled
+    +toggle({
+      state: true
+    })
+  for profile in data.profiles
+    +user-profile(profile)

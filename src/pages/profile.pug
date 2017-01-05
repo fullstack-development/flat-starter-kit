@@ -1,17 +1,19 @@
+extends ./base
+
 include ../components/user-profile/user-profile
--
+
+block title
+  | Profile Page
+
+block body
+  -
     var data = {
-        profile: {
-            name: 'John Doe',
-            profession: 'UX designer',
-            photo: 'face1.jpg',
-            facebook: 'https://fb.com'
-        }
+      profile: {
+        name: 'John Doe',
+        profession: 'UX designer',
+        photo: 'face1.jpg',
+        facebook: 'https://fb.com'
+      }
     }
 
-html
-    head
-        title Profile Page
-        meta(charset = 'utf-8')
-    body
-        +user-profile(data.profile)
+  +user-profile(data.profile)

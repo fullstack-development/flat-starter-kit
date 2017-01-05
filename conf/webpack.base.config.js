@@ -5,6 +5,17 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const SpritesmithPlugin = require('webpack-spritesmith');
 
+const pages = [
+    'home',
+    'profile',
+    'demo',
+];
+
+const htmlPlugins = pages.map(fileName => new HtmlWebpackPlugin({
+    filename: `${fileName}.html`,
+    template: `./src/pages/${fileName}.pug`,
+}));
+
 module.exports = new configurator.default().merge({
     entry: './src/entry.js',
     output: {
@@ -22,9 +33,6 @@ module.exports = new configurator.default().merge({
         new webpack.DefinePlugin({
             NODE_ENV: JSON.stringify(process.env.NODE_ENV)
         }),
-        new HtmlWebpackPlugin({filename: 'home.html', template: './src/pages/home.pug'}),
-        new HtmlWebpackPlugin({filename: 'profile.html', template: './src/pages/profile.pug'}),
-        new HtmlWebpackPlugin({filename: 'demo.html', template: './src/pages/demo.pug'}),
         new FaviconsWebpackPlugin('./src/theme/favicon.png'),
         new webpack.ProgressPlugin(),
         new webpack.ProvidePlugin({
@@ -43,7 +51,7 @@ module.exports = new configurator.default().merge({
             cssImageRef: "~theme/sprite-generated/sprite.png"
           }
         })
-    ],
+    ].concat(htmlPlugins),
     module: {
         rules: [
             {
