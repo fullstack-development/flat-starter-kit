@@ -1,38 +1,46 @@
 import './search.styl';
 import $ from 'jquery';
 
-$(function () {
+const Search = class {
+  constructor($search) {
+    this.$search = $search;
+    this._attachEventHandlers();
+  }
 
-    function search(text) {
-        //ищем text и возвращаем результат
-    }
+  _attachEventHandlers() {
+    const $text = $('.js-search__text', this.$search);
 
-    $('.js-search').each(function () {
+    $('.js-search__submit', this.$search).on('click', (event) => {
+      event.preventDefault();
 
-        let $search = $(this);
-        let $text = $('.js-search__text', $search);
+      if ($text.val() == '') return;
 
-        $('.js-search__submit', $search).on('click', function (event) {
-            event.preventDefault();
+      const result = this._search($text.val());
+      if (result) {
+        //выводим результат
+        return;
+      }
 
-            if ($text.val() == '') return;
-
-            let result = search($text.val());
-            if (result) {
-                //выводим результат
-                return;
-            }
-
-            $search.addClass('search_error');
-            $text.val('');
-            $text.attr('placeholder', 'I\'ve not found what I\'m looking for...');
-        });
-
-        $text.on('focusin', function (event) {
-            if (!$search.hasClass('search_error')) return;
-
-            $search.removeClass('search_error');
-            $text.attr('placeholder', 'Search');
-        });
+      this.$search.addClass('search_error');
+      $text.val('');
+      $text.attr('placeholder', 'I\'ve not found what I\'m looking for...');
     });
+
+    $text.on('focusin', () => {
+      if (!this.$search.hasClass('search_error')) return;
+
+      this.$search.removeClass('search_error');
+      $text.attr('placeholder', 'Search');
+    });
+  }
+
+  _search(text) {
+    //ищем text и возвращаем результат
+  }
+};
+
+$(() => {
+  $('.js-search').each((index, node) => {
+    new Search($(node));
+  });
 });

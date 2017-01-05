@@ -1,41 +1,43 @@
 import './button.styl';
 import $ from 'jquery';
 
-$(function() {
+const Button = class {
+  constructor($button) {
+    this.$button = $button;
+    this._attachEventHandlers();
+  }
 
-    $('.js-button')
-        .on('click', function (event) {
-        event.preventDefault();
+  _attachEventHandlers() {
+    this.$button
+      .on('click', (event) => this._showRippleEffect(event))
+      .on('mousedown', () => this.$button.addClass('button_pressed'))
+      .on('mouseup', () => this.$button.removeClass('button_pressed'))
+      .on('mouseout', () => this.$button.removeClass('button_pressed'));
+  }
 
-        let $div = $('<div/>'),
-            btnOffset = $(this).offset(),
-            xPos = event.pageX - btnOffset.left,
-            yPos = event.pageY - btnOffset.top;
+  _showRippleEffect(event) {
+    event.preventDefault();
 
-        $div.addClass('button__ripple-effect');
-        $div.css({
-                top: yPos,
-                left: xPos
-            });
-        $div.appendTo($(this));
+    const $div = $('<div/>');
+    const btnOffset = this.$button.offset();
+    const xPos = event.pageX - btnOffset.left;
+    const yPos = event.pageY - btnOffset.top;
 
-        window.setTimeout(function(){
-            $div.remove();
-        }, 1000);
-        })
-        .on('mousedown', function (event) {
-            $(this).addClass('button_pressed');
-        })
-        .on('mouseup', function (event) {
-            $(this).removeClass('button_pressed');
-        })
-        .on('mouseout', function (event) {
-            $(this).removeClass('button_pressed');
-        })
-        .on('click', function (event) {
-            if ($(this).hasClass('button_inverted'))
-                $(this).removeClass('button_inverted');
-            else
-                $(this).addClass('button_inverted');
-        });
+    $div.addClass('button__ripple-effect');
+    $div.css({
+      top: yPos,
+      left: xPos
+    });
+    $div.appendTo(this.$button);
+
+    window.setTimeout(function () {
+      $div.remove();
+    }, 1000);
+  }
+};
+
+$(() => {
+  $('.js-button').each((index, node) => {
+    new Button($(node));
+  });
 });

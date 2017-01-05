@@ -1,32 +1,42 @@
 import './location.styl';
 import $ from 'jquery';
 
-$(function () {
+const Map = class {
+  constructor($map) {
+    this.$map = $map;
+    this.render();
+  }
 
-    $('.js-location').each(function () {
-        let coord;
-        try {
-            coord = JSON.parse($(this).data('coord'));
-        }
-        catch(e) {
-            coord = [56.4531907, 84.9756513]
-        }
+  render() {
+    let coord = null;
+    try {
+      coord = JSON.parse(this.$map.data('coord'));
+    }
+    catch (e) {
+      coord = [56.4531907, 84.9756513]
+    }
 
-        ymaps.ready(() => {
-            let map = new ymaps.Map($('.js-location__widget', $(this))[0], {
-                center: coord,
-                zoom: 15,
-                controls: []
-            });
+    ymaps.ready(() => {
+      let map = new ymaps.Map($('.js-location__widget', this.$map)[0], {
+        center: coord,
+        zoom: 15,
+        controls: []
+      });
 
-            let placemark = new ymaps.Placemark(coord, {}, {
-                iconLayout: 'default#image',
-                iconImageHref: require('./img/map-marker.png'),
-                iconImageSize: [56, 56],
-                iconImageOffset: [-19, -56]
-            });
+      let placemark = new ymaps.Placemark(coord, {}, {
+        iconLayout: 'default#image',
+        iconImageHref: require('./img/map-marker.png'),
+        iconImageSize: [56, 56],
+        iconImageOffset: [-19, -56]
+      });
 
-            map.geoObjects.add(placemark);
-        });
-    })
+      map.geoObjects.add(placemark);
+    });
+  }
+};
+
+$(() => {
+  $('.js-location').each((index, node) => {
+    new Map($(node));
+  });
 });

@@ -1,6 +1,9 @@
+append scripts
+  script(src='https://api-maps.yandex.ru/2.1/?lang=ru_RU', type='text/javascript')
+
 //-
   options.coord - массив c координатами ( [X, Y] )
-  options.adress - адрес
+  options.address - адрес
 
 mixin location(options)
   if !options
@@ -10,7 +13,7 @@ mixin location(options)
     .location__widget.js-location__widget
     .location__info
       span.location__slogan Meet us!
-      .location__adress!= options.adress || ''
+      .location__adress!= options.address || ''
       .location__icon
         include ./img/crosshair.svg
       .location__icon

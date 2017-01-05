@@ -1,42 +1,57 @@
 import './slider.styl';
 import $ from 'jquery';
-import { importJqueryUI } from '../../plugins/index';
+import {importJqueryUI} from '../../plugins/index';
 importJqueryUI();
 
-$(function() {
+const Slider = class {
+  constructor($slider) {
+    this.$slider = $slider;
+    this.render();
+  }
+  
+  render() {
+    let $handleTooltip = $('.js-slider__handle-tooltip', this.$slider);
+    let $sliderScale = $('.js-slider__scale', this.$slider);
+    let sliderColor = this.$slider.data('slider-color');
 
-    $('.js-slider').each(function () {
+    const $widget = $('.js-slider__widget', this.$slider);
+    $widget.slider({
+      range: $sliderScale.length ? 'min' : false,
 
-        let $handleTooltip = $('.js-slider__handle-tooltip', $(this));
-        let $sliderScale = $('.js-slider__scale', $(this));
-        let sliderColor = $(this).data('slider-color');
+      create: $handleTooltip.length ? () => {
+          $handleTooltip.text($widget.slider('value'));
+        } : () => {},
 
-        $('.js-slider__widget', $(this)).slider({
-            range: $sliderScale.length ? 'min' : false,
-
-            create: $handleTooltip.length ? function () {
-                $handleTooltip.text($(this).slider('value'));
-            } : function () {},
-
-            slide: $handleTooltip.length ? function (event, ui) {
-                $handleTooltip.text(ui.value);
-            } : function () {}
-        });
-
-        $('.ui-slider-range', $(this)).css('background-color', sliderColor);
-        let $handle = $('.js-slider__handle', $(this));
-        $handle.css('background-color', sliderColor);
-
-        if($handleTooltip.length) {
-            $handle.on('mousedown', function (event) {
-                $handleTooltip.addClass('slider__handle-tooltip_active')
-            });
-            $(this).on('mousedown', function (event) {
-                $handleTooltip.addClass('slider__handle-tooltip_active')
-            });
-            $('body').on('mouseup', function (event) {
-                $handleTooltip.removeClass('slider__handle-tooltip_active')
-            });
-        }
+      slide: $handleTooltip.length ? (event, ui) => {
+          $handleTooltip.text(ui.value);
+        } : () => {}
     });
+
+    $('.ui-slider-range', this.$slider).css('background-color', sliderColor);
+    $('.js-slider__handle', this.$slider).css('background-color', sliderColor);
+
+    this._attachTooltipEventHandlers();
+  }
+
+  _attachTooltipEventHandlers() {
+    let $handleTooltip = $('.js-slider__handle-tooltip', this.$slider);
+
+    if ($handleTooltip.length) {
+      $('.js-slider__handle', this.$slider).on('mousedown', () => {
+        $handleTooltip.addClass('slider__handle-tooltip_active')
+      });
+      this.$slider.on('mousedown', () => {
+        $handleTooltip.addClass('slider__handle-tooltip_active')
+      });
+      $('body').on('mouseup', () => {
+        $handleTooltip.removeClass('slider__handle-tooltip_active')
+      });
+    }
+  }
+};
+
+$(() => {
+  $('.js-slider').each((index, node) => {
+    new Slider($(node));
+  });
 });

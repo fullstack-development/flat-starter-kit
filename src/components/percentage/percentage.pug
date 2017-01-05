@@ -4,7 +4,7 @@ mixin percentage(options)
   if !options
     - options = {}
 
-  .percentage
+  .percentage.js-percentage
     .percentage__active-border.js-percentage__active-border(data-percent = options.percent || 0)
       .percentage__mask-circle
         span.percentage__percent= options.percent || 0

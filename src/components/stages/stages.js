@@ -1,14 +1,23 @@
 import './stages.styl';
 import $ from 'jquery';
 
-$(function () {
+const Stages = class {
+  constructor($stages) {
+    this.$stages = $stages;
+    this.render();
+  }
 
-    $('.js-stages').each(function () {
+  render() {
+    let progress = this.$stages.data('progress');
+    let itemsLength = $('.js-stages__item', this.$stages).length;
 
-        let progress = $(this).data('progress');
-        let itemsLength = $('.js-stages__item', $(this)).length;
+    $('.js-stages__progress', this.$stages)
+      .css('width', (100 * (progress - 1) / (itemsLength - 1)) + '%');
+  }
+};
 
-        $('.js-stages__progress', $(this))
-            .css('width', (100 * (progress - 1) / (itemsLength - 1)) + '%');
-    })
+$(() => {
+  $('.js-stages').each((index, node) => {
+    new Stages($(node));
+  });
 });
