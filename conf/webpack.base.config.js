@@ -2,8 +2,10 @@ const path = require('path');
 const webpack = require('webpack');
 const configurator = require('webpack-config');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const SpritesmithPlugin = require('webpack-spritesmith');
+
 
 const pages = [
   'home',
@@ -14,6 +16,7 @@ const pages = [
 const htmlPlugins = pages.map(fileName => new HtmlWebpackPlugin({
   filename: `${fileName}.html`,
   template: `./src/pages/${fileName}.pug`,
+  alwaysWriteToDisk: true,
 }));
 
 module.exports = new configurator.default().merge({
@@ -50,7 +53,8 @@ module.exports = new configurator.default().merge({
       apiOptions: {
         cssImageRef: "~theme/sprite-generated/sprite.png"
       }
-    })
+    }),
+    new HtmlWebpackHarddiskPlugin(),
   ].concat(htmlPlugins),
   module: {
     rules: [

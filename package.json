@@ -57,6 +57,7 @@
     "extract-text-webpack-plugin": "^1.0.1",
     "favicons-webpack-plugin": "0.0.7",
     "file-loader": "^0.9.0",
+    "html-webpack-harddisk-plugin": "0.0.2",
     "html-webpack-plugin": "^2.24.1",
     "jquery": "^3.1.1",
     "pug": "^2.0.0-beta6",
@@ -68,7 +69,7 @@
     "webpack": "^2.2.0-rc.3",
     "webpack-config": "^6.2.1",
     "webpack-dev-middleware": "^1.8.4",
-    "webpack-dev-server": "^1.16.2",
+    "webpack-dev-server": "^2.2.0-rc.0",
     "webpack-hot-middleware": "^2.13.1",
     "webpack-spritesmith": "^0.3.1"
   }
