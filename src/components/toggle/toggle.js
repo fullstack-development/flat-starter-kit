@@ -1,14 +1,14 @@
 import './toggle.styl';
 import $ from 'jquery';
 
-const Toggle = class {
-  constructor($toggle) {
-    this.$toggle = $toggle;
+class Toggle {
+  constructor($component) {
+    this.$component = $component;
     this._attachEventHandlers();
   }
 
   _attachEventHandlers() {
-    this.$toggle.on('click', () => this.$toggle.toggleClass('toggle_on'));
+    this.$component.on('click', () => this.$component.toggleClass('toggle_on'));
   }
 };
 

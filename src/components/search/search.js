@@ -1,41 +1,41 @@
 import './search.styl';
 import $ from 'jquery';
 
-const Search = class {
-  constructor($search) {
-    this.$search = $search;
+class Search {
+  constructor($component) {
+    this.$component = $component;
     this._attachEventHandlers();
   }
 
   _attachEventHandlers() {
-    const $text = $('.js-search__text', this.$search);
+    const $text = $('.js-search__text', this.$component);
 
-    $('.js-search__submit', this.$search).on('click', (event) => {
+    $('.js-search__submit', this.$component).on('click', (event) => {
       event.preventDefault();
 
       if ($text.val() == '') return;
 
       const result = this._search($text.val());
       if (result) {
-        //выводим результат
+        //output results
         return;
       }
 
-      this.$search.addClass('search_error');
+      this.$component.addClass('search_error');
       $text.val('');
       $text.attr('placeholder', 'I\'ve not found what I\'m looking for...');
     });
 
     $text.on('focusin', () => {
-      if (!this.$search.hasClass('search_error')) return;
+      if (!this.$component.hasClass('search_error')) return;
 
-      this.$search.removeClass('search_error');
+      this.$component.removeClass('search_error');
       $text.attr('placeholder', 'Search');
     });
   }
 
   _search(text) {
-    //ищем text и возвращаем результат
+    //find text and return results
   }
 };
 

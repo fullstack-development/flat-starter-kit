@@ -1,23 +1,23 @@
 import './location.styl';
 import $ from 'jquery';
 
-const Map = class {
-  constructor($map) {
-    this.$map = $map;
+class Location {
+  constructor($component) {
+    this.$component = $component;
     this.render();
   }
 
   render() {
     let coord = null;
     try {
-      coord = JSON.parse(this.$map.data('coord'));
+      coord = JSON.parse(this.$component.data('coord'));
     }
     catch (e) {
       coord = [56.4531907, 84.9756513]
     }
 
     ymaps.ready(() => {
-      let map = new ymaps.Map($('.js-location__widget', this.$map)[0], {
+      let map = new ymaps.Map($('.js-location__widget', this.$component)[0], {
         center: coord,
         zoom: 15,
         controls: []
@@ -37,6 +37,6 @@ const Map = class {
 
 $(() => {
   $('.js-location').each((index, node) => {
-    new Map($(node));
+    new Location($(node));
   });
 });

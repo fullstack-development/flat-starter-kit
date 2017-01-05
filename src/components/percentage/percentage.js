@@ -1,14 +1,14 @@
 import './percentage.styl';
 import $ from 'jquery';
 
-const Percentage = class {
-  constructor($percentage) {
-    this.$percentage = $percentage;
+class Percentage {
+  constructor($component) {
+    this.$component = $component;
     this.render();
   }
 
   render() {
-    const $activeBorder = $('.js-percentage__active-border', this.$percentage);
+    const $activeBorder = $('.js-percentage__active-border', this.$component);
     let perc = +$activeBorder.data('percent');
     if (isNaN(perc)) return;
     if (perc < 0) perc = 0;

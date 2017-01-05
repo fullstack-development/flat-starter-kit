@@ -3,18 +3,18 @@ import $ from 'jquery';
 import {importJqueryUI} from '../../plugins/index';
 importJqueryUI();
 
-const Slider = class {
-  constructor($slider) {
-    this.$slider = $slider;
+class Slider {
+  constructor($component) {
+    this.$component = $component;
     this.render();
   }
   
   render() {
-    let $handleTooltip = $('.js-slider__handle-tooltip', this.$slider);
-    let $sliderScale = $('.js-slider__scale', this.$slider);
-    let sliderColor = this.$slider.data('slider-color');
+    let $handleTooltip = $('.js-slider__handle-tooltip', this.$component);
+    let $sliderScale = $('.js-slider__scale', this.$component);
+    let sliderColor = this.$component.data('slider-color');
 
-    const $widget = $('.js-slider__widget', this.$slider);
+    const $widget = $('.js-slider__widget', this.$component);
     $widget.slider({
       range: $sliderScale.length ? 'min' : false,
 
@@ -27,20 +27,20 @@ const Slider = class {
         } : () => {}
     });
 
-    $('.ui-slider-range', this.$slider).css('background-color', sliderColor);
-    $('.js-slider__handle', this.$slider).css('background-color', sliderColor);
+    $('.ui-slider-range', this.$component).css('background-color', sliderColor);
+    $('.js-slider__handle', this.$component).css('background-color', sliderColor);
 
     this._attachTooltipEventHandlers();
   }
 
   _attachTooltipEventHandlers() {
-    let $handleTooltip = $('.js-slider__handle-tooltip', this.$slider);
+    let $handleTooltip = $('.js-slider__handle-tooltip', this.$component);
 
     if ($handleTooltip.length) {
-      $('.js-slider__handle', this.$slider).on('mousedown', () => {
+      $('.js-slider__handle', this.$component).on('mousedown', () => {
         $handleTooltip.addClass('slider__handle-tooltip_active')
       });
-      this.$slider.on('mousedown', () => {
+      this.$component.on('mousedown', () => {
         $handleTooltip.addClass('slider__handle-tooltip_active')
       });
       $('body').on('mouseup', () => {
