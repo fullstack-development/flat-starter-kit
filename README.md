@@ -1,5 +1,5 @@
 # flat-starter-kit
-Starter Kit for PSD-to-HTML projects with Webpack, Jade and Stylus
+Starter Kit for PSD-to-HTML projects with Webpack, Pug and Stylus
 
 ## Features
 We use Pug and Stylus to create static layout page for our clients who desires qualified "PSD to HTML" work. 
@@ -26,7 +26,7 @@ pages
 |  profiles-list.pug
 └─── components
 ```
-`home.pug`, `profile.pug`, `profiles-list.pug` are independent separated pages, they have its own `<html>`, `<head>`, `<body>` tags and include root components. Page ideally should NOT contain any element except of imports of different components. Page should declare variable `data` at the top of the file and contain all fake data there (including all lists, parameters, links to social media etc). See src/pages/home.pug and src/pages/profile.pug for examples.
+`home.pug`, `profile.pug`, `profiles-list.pug` are independent separated pages, they have its own `<html>`, `<head>`, `<body>` tags and include root components. Page ideally should NOT contain any element except of imports of different components. Page should declare variable `data` at the top of the file and contain all fake data there (including all lists, parameters, links to social media etc). See _src/pages/home.pug_ and _src/pages/profile.pug_ for examples.
 
 `components` is a folder with all possible components shared between all pages, the structure of the directory is:
 ```

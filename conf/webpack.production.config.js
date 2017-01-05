@@ -14,7 +14,6 @@ module.exports = new configurator.default().extend({
     filename: __filename,
     plugins: [
         new CleanPlugin(['./dist'], { root: path.resolve(__dirname, '..') }),
-        new webpack.optimize.DedupePlugin(),
         new webpack.optimize.UglifyJsPlugin({
             mangle: true,
             output: {

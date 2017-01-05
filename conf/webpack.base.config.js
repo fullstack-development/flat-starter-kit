@@ -1,20 +1,11 @@
 const path = require('path');
 const webpack = require('webpack');
 const configurator = require('webpack-config');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const SpritesmithPlugin = require('webpack-spritesmith');
 
-const pages = [
-    'home',
-    'profile',
-    'demo',
-];
-
-const htmlPlugins = pages.map(fileName => new HtmlWebpackPlugin({
-    filename: `${fileName}.html`,
-    template: `./src/pages/${fileName}.pug`,
-}));
+const extractPlugin = new ExtractTextPlugin({ filename: '[name].html', path: 'pages' });
 
 module.exports = new configurator.default().merge({
     entry: './src/entry.js',
@@ -30,6 +21,7 @@ module.exports = new configurator.default().merge({
         ]
     },
     plugins: [
+        extractPlugin,
         new webpack.DefinePlugin({
             NODE_ENV: JSON.stringify(process.env.NODE_ENV)
         }),
@@ -51,7 +43,7 @@ module.exports = new configurator.default().merge({
             cssImageRef: "~theme/sprite-generated/sprite.png"
           }
         })
-    ].concat(htmlPlugins),
+    ],
     module: {
         rules: [
             {
@@ -64,21 +56,21 @@ module.exports = new configurator.default().merge({
                     presets: ['es2015']
                 }
             },
-          {
-            test: /\.css/,
-            use: [
-              {
-                loader: 'style-loader',
-              },
-              {
-                loader: 'css-loader',
-                options: {
-                  importLoaders: 2,
-                  sourceMap: false,
-                }
-              },
-            ]
-          },
+            {
+                test: /\.css/,
+                use: [
+                    {
+                        loader: 'style-loader',
+                    },
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            importLoaders: 2,
+                            sourceMap: false,
+                        }
+                    },
+                ]
+            },
             {
                 test: /\.styl/,
                 use: [
@@ -113,7 +105,10 @@ module.exports = new configurator.default().merge({
             },
             {
                 test: /\.pug$/,
-                loader: 'pug-loader'
+                loader: extractPlugin.extract({
+                    fallbackLoader: 'pug-loader',
+                    loader: ['apply-loader', 'pug-loader'],
+                })
             },
             {
                 test: /\.(png|jpg|svg|ttf|eot|woff|woff2)$/,
