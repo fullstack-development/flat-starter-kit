@@ -73,51 +73,24 @@ block body
     +layout__left-column()
       h2 search / drop down
       +search()
-      +drop-down({items: ["Choose an option", "First option", "Second option", "Third option"]})
+      +drop-down({items: locals.dropDownOptions})
     +layout__right-column()
       h2 user profile
-      +user-profile({
-        name: 'Sarah Brown',
-        profession: 'developer'
-      })
-      +user-profile({
-        name: 'John Smith',
-        profession: 'ux designer',
-        photo: 'face1.jpg',
-        facebook: 'https://vk.com'
-      })
-      +user-profile(locals.user_SarahBrown)
+      for profile in locals.profiles
+        +user-profile(profile)
   +layout()
     h2 news & events
     +layout__left-column()
-      +news({
-        image: "img1.jpg",
-        title: "It's all going downhill",
-        date: "24 august 2013",
-        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit," +
-        " sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-      })
+      +news(locals.news[0])
     +layout__right-column()
-      +event({
-        image: "img1.jpg",
-        title: "This is the title",
-        dateDay: "24",
-        dateMonth: "August",
-        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-      })
+      +event(locals.events[0])
   +layout()
     h2 location
-    +location({
-      coord: [56.4531907, 84.9756513],
-      address: "Tomsk, Krasnoarmeyskaya, 147<br/> office 201"
-    })
+    +location(locals.location)
   +layout()
     +layout__left-column
       h2 calendar
       +calendar()
     +layout__right-column
       h2 messaging
-      +messager({
-        user: user_SarahBrown,
-        messages: [true, 'Hey! So are we cool to meet at the art gallery? Say 8pm', false, 'Ok))']
-      })
+      +messager(locals.messagers[0])

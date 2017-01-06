@@ -1,8 +1,8 @@
 //-
   options.user - объект с данными пользователя идентичный передаваемому в User-profile
   options.messages - массив сообщений.
-    messages[0, 2, 4, ...] - флаг, если true, то сообщение входящее,
-    messages[1, 3, 5, ...] - текст сообщения
+  options.messages[0].isIncoming - флаг входящего сообщения
+  options.messages[0].text - тест сообщения
 
 include ../user-profile/user-profile
 include ../button/button
@@ -38,9 +38,9 @@ mixin messager(options)
       .messager__chat-wrapper
         .messager__chat-scroller.js-messager__chat-scroller
           .messager__chat.js-messager__chat
-            - for (var i = 0; i < options.messages.length; i = i + 2)
-              .messager__message(class = options.messages[i] ? 'messager__message_in' : 'messager__message_out')
-                span #{options.messages[i + 1]}
+            for message in options.messages
+              .messager__message(class = message.isIncoming ? 'messager__message_in' : 'messager__message_out')
+                span #{message.text}
       textarea.messager__input.js-messager__input
       .messager__btn-submit.js-messager__btn-submit
         +button({text: "reply"})
