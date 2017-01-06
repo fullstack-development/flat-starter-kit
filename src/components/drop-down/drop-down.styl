@@ -1,36 +1,66 @@
+dropDownHeight = 2.3rem
+
 .drop-down
-  display flex
-  align-items stretch
-  position relative
+  display: block;
+  height: dropDownHeight;
 
-  &__select-box
-    width 100%
-    background-color #e5e5e5
-    color #888888
-    padding 0.3rem 0.8rem
-    border none
-    border-top-left-radius 3px
-    border-bottom-left-radius 3px
-    font-size 1.2rem
-    font-family SourceSansProRegular, sans-serif
+  & .ui-button.ui-selectmenu-button
+    display block
+    overflow hidden
+    width auto
+    background-color: #e5e5e5;
+    border-radius: 0.3rem;
 
-    &:focus
-      outline none
+    &-open
+      border-bottom-left-radius 0
+      border-bottom-right-radius 0
 
-  &__button
-    position absolute
-    right 0
-    top 0
-    bottom 0
+      & .ui-selectmenu-icon::after
+        mask-image url(./img/up.svg)
+
+  & .ui-selectmenu-icon
     display flex
     justify-content center
-    padding 0.1rem
-    width 2.75rem
-    background-color color-first
-    border-top-right-radius 3px
-    border-bottom-right-radius 3px
-    font-size 2rem
-    pointer-events none
+    height: dropDownHeight;
+    width: 2.8rem;
+    background-color: #4eb7a8;
 
-    & svg path
-      fill white
+    &::after
+      content '1'
+      display block
+      color transparent
+      flex-basis 50%
+      background-color white
+      mask-position center center
+      mask-repeat no-repeat
+      mask-size contain
+      mask-image url(./img/down.svg)
+
+  & .ui-selectmenu-text
+    height: dropDownHeight;
+    margin-right: 2.8rem;
+    vertical-align: middle;
+    line-height: dropDownHeight;
+    padding-left: 1.1rem;
+    color: #888;
+    font-family: sans-serif;
+    font-size: 1.1rem;
+
+.ui-selectmenu-menu.ui-selectmenu-open
+  padding-top: 0.2rem;
+
+  & .ui-menu
+    border: 2px solid #e5e5e5;
+    border-bottom-left-radius: 0.3rem;
+    border-bottom-right-radius: 0.3rem;
+
+  & .ui-menu-item-wrapper
+    padding: 0.3rem 1rem;
+    font-family: sans-serif;
+    font-size: 1.1rem;
+    color #888
+
+    &.ui-state-active
+      border 1px solid #d0d0d0
+      background-color #e5e5e5
+      margin -1px
