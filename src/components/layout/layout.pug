@@ -1,7 +1,36 @@
 mixin layout()
   .layout
-    .layout__center.clearfix
-      block
+    block
+
+mixin layout__header()
+  header.layout__header
+    block
+
+mixin layout__main()
+  main.layout__main
+    block
+
+mixin layout__footer()
+  footer.layout__footer
+    block
+
+mixin layout__flex-column()
+  .layout__flex-column
+    block
+
+mixin layout__column()
+  .layout__column
+    block
+
+
+//-
+  options.width - максимальная ширина блока в пикселях, от 50 до 4000 с шагом 50
+mixin layout__center(options)
+  if !options
+    - options = {}
+
+  .layout__center(class= options.width ? 'layout__center_w' + options.width : '')
+    block
 
 mixin layout__left-column()
   .layout__left-column

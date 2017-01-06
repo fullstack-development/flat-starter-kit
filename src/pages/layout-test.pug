@@ -1,0 +1,26 @@
+extends ./base
+
+include ../components/layout/layout
+
+block title
+  | Test layout
+
+block header
+  +layout__column()
+    div(style={background: 'green', height: '50px'})
+
+block main
+  +layout__flex-column()
+    +layout__center({width: 1000})
+      +layout__column()
+      +layout__flex-column()
+        +layout__column()
+        +layout__column()
+      +layout__column()
+  +layout__column()
+  +layout__column()
+  div(style={background: 'blue'})
+
+block footer
+  +layout__column()
+    div(style={background: 'red', height: '50px'})

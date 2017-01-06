@@ -1,45 +1,31 @@
 .layout
-  max-width 700px
-  min-width 300px
-  margin 0 auto
+  height 100%
+  display flex
+  flex-direction column
+
+  &__header
+    display flex
+    flex 0 0 auto
+
+  &__main
+    flex 1 0 auto
+
+  &__footer
+    display flex
+    flex 0 0 auto
+
+  &__flex-column
+    display flex
+    flex 1 1 auto
+
+  &__column
+    flex 1 1 auto
 
   &__center
-    padding 0 7%
-    text-align center
+    margin-left auto
+    margin-right auto
 
-    & > .button
-      margin-left 10px
-      margin-right 10px
-
-    & > .arrow-button
-      margin-left 12px
-      margin-right 12px
-
-  & .percentage
-  & .pie-chart
-    margin-left 11px
-    margin-right 11px
-
-  & .toggle + .toggle
-    margin-left 15px
-
-  & .tick-box + .tick-box
-    margin-left 15px
-
-  & .user-profile + .user-profile
-    margin-left 15px
-
-  & .drop-down
-    margin-top 10px
-
-@media screen and (min-width: 500px)
-  .layout
-    &__left-column
-      float left
-      width 50%
-      padding-right 3%
-
-    &__right-column
-      float right
-      width 50%
-      padding-left 3%
+    for width in (1..80)
+      width = width * 50
+      &_w{width}
+        max-width '%spx' % width

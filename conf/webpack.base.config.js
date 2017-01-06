@@ -11,6 +11,7 @@ const pages = [
   'home',
   'profile',
   'demo',
+  'layout-test',
 ];
 
 const htmlPlugins = pages.map(fileName => new HtmlWebpackPlugin({

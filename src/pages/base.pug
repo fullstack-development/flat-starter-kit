@@ -1,5 +1,7 @@
 block variables
 
+include ../components/layout/layout
+
 html
   head
     meta(charset = 'utf-8')
@@ -7,5 +9,11 @@ html
     title
       block title
   body
-    block body
+    +layout()
+      +layout__header()
+        block header
+      +layout__main()
+        block main
+      +layout__footer()
+        block footer
     block scripts
