@@ -19,18 +19,13 @@ include ../components/location/location
 include ../components/calendar/calendar
 include ../components/messager/messager
 
+block variables
+  include ./demo-data
+
 block title
   | Flat Starter Kit Demo
 
 block body
-  -
-    var user_SarahBrown = {
-      name: 'Sarah Brown',
-      profession: 'developer',
-      photo: 'face2.jpg',
-      twitter: 'https://vk.com'
-    }
-
   +layout()
     h2 standard buttons
     +button({size: 'small'})
@@ -91,7 +86,7 @@ block body
         photo: 'face1.jpg',
         facebook: 'https://vk.com'
       })
-      +user-profile(user_SarahBrown)
+      +user-profile(locals.user_SarahBrown)
   +layout()
     h2 news & events
     +layout__left-column()

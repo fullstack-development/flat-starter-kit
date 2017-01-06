@@ -2,18 +2,11 @@ extends ./base
 
 include ../components/user-profile/user-profile
 
+block variables
+  include ./profile-data
+
 block title
   | Profile Page
 
 block body
-  -
-    var data = {
-      profile: {
-        name: 'John Doe',
-        profession: 'UX designer',
-        photo: 'face1.jpg',
-        facebook: 'https://fb.com'
-      }
-    }
-
-  +user-profile(data.profile)
+  +user-profile(locals.profile)

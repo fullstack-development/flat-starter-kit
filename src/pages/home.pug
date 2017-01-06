@@ -3,36 +3,16 @@ extends ./base
 include ../components/user-profile/user-profile
 include ../components/toggle/toggle
 
+block variables
+  include ./home-data
+
 block title
   | Home Page
 
 block body
-  -
-    var data = {
-      isToggleEnabled: true,
-      profiles: [
-        {
-          name: 'Sarah Brown',
-          profession: 'developer'
-        },
-        {
-          name: 'John Smith',
-          profession: 'ux designer',
-          photo: 'face1.jpg',
-          facebook: 'https://fb.com'
-        },
-        {
-          name: 'Sarah Brown',
-          profession: 'developer',
-          photo: 'face2.jpg',
-          twitter: 'https://twitter.com'
-        }
-      ]
-    }
-
-  if data.isToggleEnabled
+  if locals.isToggleEnabled
     +toggle({
       state: true
     })
-  for profile in data.profiles
+  for profile in locals.profiles
     +user-profile(profile)
