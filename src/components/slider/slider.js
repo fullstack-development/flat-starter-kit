@@ -1,7 +1,10 @@
 import './slider.styl';
 import $ from 'jquery';
-import {importJqueryUI} from '../../plugins/index';
-importJqueryUI();
+
+if (!$.fn.slider) {
+    require('jquery-ui/ui/widgets/slider');
+    require('jquery-ui/themes/base/slider.css');
+}
 
 class Slider {
   constructor($component) {

@@ -39,7 +39,8 @@ module.exports = new configurator.default().merge({
     new FaviconsWebpackPlugin('./src/theme/favicon.png'),
     new webpack.ProgressPlugin(),
     new webpack.ProvidePlugin({
-      $: 'jquery'
+      $: 'jquery',
+      jQuery: 'jquery',
     }),
     new SpritesmithPlugin({
       src: {
@@ -63,8 +64,6 @@ module.exports = new configurator.default().merge({
         loader: 'babel-loader',
         exclude: [
           /node_modules/,
-          /jquery-ui\.js/,
-          /jquery\.peity\.js/,
         ],
         query: {
           presets: ['es2015']
@@ -119,7 +118,7 @@ module.exports = new configurator.default().merge({
       },
       {
         test: /\.pug$/,
-        loader: 'pug-loader'
+        loader: 'pug-loader',
       },
       {
         test: /\.(png|jpg|svg|ttf|eot|woff|woff2)$/,

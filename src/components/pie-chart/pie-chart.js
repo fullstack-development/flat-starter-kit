@@ -1,7 +1,9 @@
 import './pie-chart.styl';
 import $ from 'jquery';
-import {importJqueryPeity} from '../../plugins/index';
-importJqueryPeity();
+
+if (!$.fn.peity) {
+  require('peity/jquery.peity');
+}
 
 class PieChart {
   constructor($component) {

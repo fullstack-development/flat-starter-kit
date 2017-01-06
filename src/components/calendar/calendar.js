@@ -1,7 +1,10 @@
 import './calendar.styl';
 import $ from 'jquery';
-import {importJqueryUI} from '../../plugins/index';
-importJqueryUI();
+
+if (!$.fn.datepicker) {
+  require('jquery-ui/ui/widgets/datepicker');
+  require('jquery-ui/themes/base/datepicker.css');
+}
 
 class Calendar {
   constructor($component) {
