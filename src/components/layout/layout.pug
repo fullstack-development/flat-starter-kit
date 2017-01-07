@@ -14,22 +14,32 @@ mixin layout__footer()
   footer.layout__footer
     block
 
-mixin layout__flex-column()
-  .layout__flex-column
-    block
-
-mixin layout__column()
-  .layout__column
-    block
-
-
 //-
-  options.width - максимальная ширина блока в пикселях, от 50 до 4000 с шагом 50
-mixin layout__center(options)
+  options.display - задает display, возможное значение 'block', по-умолчанию 'flex'
+  options.dasis - задает flex-basis в пикселях, от 50 до 4000 с шагом 50 или auto, по-умолчанию 100%
+  options.grow - задает flex-grow, от 0 до 10, по-умолчанию 1
+  options.shrink - задает flex-shrink, от 0 до 10, по-умолчанию 1
+  options.wrap - задает flex-wrap, возможные значения 'wrap', 'wrap-reverse', по-умолчанию 'nowrap'
+  options.direction - задает flex-direction, возможные значения 'column', 'column-reverse',
+                      'row-reverse', по-умолчанию 'row'
+  options.align - горизонтальное выравнивание относительно родительского контейнера,
+                  не сработает если у соседнего контейнера flex-grow > 0,
+                  возможные значения 'left', 'right', 'center'
+mixin layout__container(options)
   if !options
     - options = {}
 
-  .layout__center(class= options.width ? 'layout__center_w' + options.width : '')
+  -
+    var classes = ''
+    classes += options.display ? ' layout__container_' + options.display : ''
+    classes += options.basis ? ' layout__container_basis-' + options.basis : ''
+    classes += options.grow ? ' layout__container_grow-' + options.grow : ''
+    classes += options.shrink ? ' layout__container_shrink-' + options.shrink : ''
+    classes += options.wrap ? ' layout__container_' + options.wrap : ''
+    classes += options.direction ? ' layout__container_' + options.direction : ''
+    classes += options.align ? ' layout__container_' + options.align : ''
+
+  .layout__container(class= classes)
     block
 
 mixin layout__left-column()

@@ -6,21 +6,25 @@ block title
   | Test layout
 
 block header
-  +layout__column()
-    div(style={background: 'green', height: '50px'})
+  +layout__container({basis: 750, align: 'center'})
+    +layout__container({direction: 'column'})
+      div(style={background: 'green', height: '50px'})
 
 block main
-  +layout__flex-column()
-    +layout__center({width: 1000})
-      +layout__column()
-      +layout__flex-column()
-        +layout__column()
-        +layout__column()
-      +layout__column()
-  +layout__column()
-  +layout__column()
-  div(style={background: 'blue'})
+  +layout__container({direction: 'column'})
+    +layout__container()
+      +layout__container()
+        +layout__container()
+          +layout__container({grow: 1, basis: 'auto'})
+          +layout__container({grow: 3, basis: 'auto'})
+        +layout__container()
+          +layout__container({shrink: 1})
+          +layout__container({shrink: 3})
+        +layout__container()
+    +layout__container({basis: 200})
+    +layout__container()
 
 block footer
-  +layout__column()
-    div(style={background: 'red', height: '50px'})
+  +layout__container({basis: 750, align: 'left'})
+    +layout__container({direction: 'column'})
+      div(style={background: 'red', height: '50px'})
