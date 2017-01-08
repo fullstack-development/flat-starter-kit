@@ -21,8 +21,6 @@ class Location {
         center: coord,
         zoom: 15,
         controls: [],
-      }, {
-        autoFitToViewport: 'always',
       });
 
       let placemark = new ymaps.Placemark(coord, {}, {
@@ -33,7 +31,6 @@ class Location {
       });
 
       map.geoObjects.add(placemark);
-      map.container.fitToViewport();
     });
   }
 };
