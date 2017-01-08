@@ -1,38 +1,26 @@
 .percentage
-  position relative
-  display inline-block
-  width 95px
-  text-align center
-  -webkit-user-select none
-  -moz-user-select none
-  -ms-user-select none
+  display: inline-flex;
+  width: 8rem;
+  height: 8rem;
 
   &__active-border
-    position relative
+    flex-basis: 100%;
+    display: flex;
+    padding: 5px;
     background-color color-second
     border-radius 50%
     background-image: linear-gradient(90deg, transparent 50%, #fff 50%), linear-gradient(90deg, #fff 50%, transparent 50%);
 
-    &::before
-      content ""
-      display block
-      padding-top 100%
-
   &__mask-circle
+    flex-basis 100%
     display flex
     justify-content center
     align-items center
-    position absolute
-    top 0
-    left 0
-    right 0
-    bottom 0
     background-color white
     border-radius 50%
-    margin 5%
 
   &__percent
     font-size 3.25rem
-    margin-top 4px
+    margin-top 0.3rem
     color #9d9d9d
     font-family LatoLight, sans-serif

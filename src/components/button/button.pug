@@ -9,13 +9,14 @@
 mixin button(options)
   if !options
     - options = {}
+  -
+    var classes = ''
+    classes += options.type ? ' button_' + options.type : ''
+    classes += options.size ? ' button_' + options.size : ''
+    classes += options.isInverted ? ' button_inverted' : ''
 
-  .button.js-button(
-    class = options.type ? 'button_' + options.type : '',
-    class = options.size ? 'button_' + options.size : '',
-    class = options.isInverted ? 'button_inverted' : ''
-  )
+  .button.js-button(class=classes)
     button.button__element(
       type = options.isSubmit ? 'submit' : false,
       tabindex = options.tabindex || false
-    )= options.text ? options.text : 'Button'
+    )= options.text || 'Button'
