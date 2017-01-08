@@ -20,7 +20,9 @@ class Location {
       let map = new ymaps.Map($('.js-location__widget', this.$component)[0], {
         center: coord,
         zoom: 15,
-        controls: []
+        controls: [],
+      }, {
+        autoFitToViewport: 'always',
       });
 
       let placemark = new ymaps.Placemark(coord, {}, {
@@ -31,6 +33,7 @@ class Location {
       });
 
       map.geoObjects.add(placemark);
+      map.container.fitToViewport();
     });
   }
 };

@@ -10,7 +10,7 @@ mixin location(options)
     - options = {}
 
   .location.js-location(data-coord= JSON.stringify(options.coord || []))
-    .location__widget.js-location__widget
+    .location__widget.js-location__widget(style={width: '100%'})
     .location__info
       span.location__slogan Meet us!
       .location__adress!= options.address || ''
