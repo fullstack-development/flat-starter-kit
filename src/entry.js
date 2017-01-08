@@ -5,4 +5,5 @@ function requireAll(requireContext) {
 }
 
 requireAll(require.context('./components', true, /^\.\/.*\.(jsx?)$/));
+requireAll(require.context('./pages', true, /^\.\/.*\.(jsx?)$/));
 

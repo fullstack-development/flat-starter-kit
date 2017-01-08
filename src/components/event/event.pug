@@ -15,7 +15,7 @@ mixin event(options)
     .event__image-frame
       if options.image
         img.event__image(
-          src = require('../components/event/img/' + options.image),
+          src = require('../../components/event/img/' + options.image),
           alt = 'event image'
         )
     .event__preview

@@ -25,6 +25,7 @@ mixin layout__footer()
   options.align - горизонтальное выравнивание относительно родительского контейнера,
                   не сработает если у соседнего контейнера flex-grow > 0,
                   возможные значения 'left', 'right', 'center'
+  options.mix - любая строка, будет добавлена в классы контейнера
 mixin layout__container(options)
   if !options
     - options = {}
@@ -38,6 +39,7 @@ mixin layout__container(options)
     classes += options.wrap ? ' layout__container_' + options.wrap : ''
     classes += options.direction ? ' layout__container_' + options.direction : ''
     classes += options.align ? ' layout__container_' + options.align : ''
+    classes += options.mix ? ' ' + options.mix : ''
 
   .layout__container(class= classes)
     block

@@ -12,7 +12,7 @@ mixin news(options)
     .news__image-frame
       if options.image
         img.news__image(
-          src = require('../components/news/img/' + options.image),
+          src = require('../../components/news/img/' + options.image),
           alt = 'news image'
         )
     .news__preview
