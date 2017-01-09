@@ -1,9 +1,15 @@
-//- options.enabled - состояние tick-box'а (bool)
+//-
+  options.enabled - состояние tick-box'а (bool)
+  options.mix - любая строка, будет добавлена в классы компонента
 
 mixin tick-box(options)
   if !options
     - options = {}
+  -
+    var classes = ''
+    classes += options.mix || ''
+    classes += ' ' + (options.enabled ? 'tick-box_enable' : '')
 
-  .tick-box(class = options.enabled ? 'tick-box_enable' : '')
+  .tick-box.js-tick-box(class = classes)
     .tick-box__check-icon
       include ./img/check.svg

@@ -11,6 +11,13 @@ tick-box_height = 2rem
   align-items center
   transition background-color 0.2s, color 0.2s
 
+  input:not(:checked) + &
+    background-color #e5e5e5
+
+    & .tick-box__check-icon svg path
+      fill #c0c0c0
+
+  input:checked + &
   &_enable
     background-color color-first
 

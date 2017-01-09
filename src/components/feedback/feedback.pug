@@ -1,35 +1,44 @@
 include ../button/button
-
-mixin feedback__validation()
-  .feedback__validation
-    span.feedback__validation-ok thanks!
-    span.feedback__validation-error error
+include ../input/input
 
 mixin feedback()
   .feedback
     form.feedback__form
-      .feedback__name
-        input.feedback__input-text(
-          tabindex = 1
-          name = 'feedback-name'
-          type = 'text'
-          placeholder = 'Your Name'
-          pattern = '^[A-Za-zА-Яа-яЁё\\s]+$'
-        )
-        +feedback__validation()
-      .feedback__email
-        input.feedback__input-email(
-          tabindex = 2
-          name = 'feedback-email'
-          type = 'email'
-          placeholder = 'Your Email'
-          required
-        )
-        +feedback__validation()
+      +input({
+        type: 'text',
+        name: 'feedback-name',
+        placeholder: 'Your Name',
+        pattern: '^[A-Za-zА-Яа-яЁё\\s]+$'
+      })
+      +input({
+        type: 'email',
+        name: 'feedback-email',
+        placeholder: 'Your Email',
+        required: true
+      })
       textarea.feedback__textarea(
-        tabindex = 3
         name = 'feedback-message'
         placeholder = 'Your Message'
       )
+      +input({
+        type: 'checkbox',
+        name: 'feedback-subscribe',
+        label: 'Subscribe to the newsletter'
+      })
+      +input({
+        type: 'radio',
+        name: 'feedback-age',
+        label: 'My age is less than 14 years'
+      })
+      +input({
+        type: 'radio',
+        name: 'feedback-age',
+        label: 'My age from 14 years to 18 years'
+      })
+      +input({
+        type: 'radio',
+        name: 'feedback-age',
+        label: 'My age is 18 years or older'
+      })
       .feedback__submit
-        +button({text: 'submit', isSubmit: true, tabindex: 4})
+        +button({text: 'submit', isSubmit: true})

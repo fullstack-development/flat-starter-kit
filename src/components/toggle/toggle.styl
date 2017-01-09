@@ -54,6 +54,16 @@ toggle_height = 2rem
   &__text-off
     padding-left (toggle_height * 6 / 8)
 
+  input:not(:checked) + &
+    background-color #e5e5e5
+
+    & .toggle__text
+      margin-left -100%
+
+    & .toggle__switcher
+      width toggle_height
+
+  input:checked + &
   &_on
     background-color color-first
 

@@ -1,0 +1,45 @@
+include ../toggle/toggle
+include ../tick-box/tick-box
+
+//-
+  options.name - form element name
+  options.type - input type
+  options.placeholder - input placeholder
+  options.pattern - input pattern
+  options.tabindex - input tabindex
+  options.required - input required
+  options.label - подпись к checkbox и radio
+
+mixin input(options)
+  if !options
+    - options = {}
+
+  .input
+    - if (options.type === 'text' || options.type === 'email')
+      input.input__element(
+        type = options.type
+        name = options.name
+        placeholder = options.placeholder
+        pattern = options.pattern
+        tabindex = options.tabindex
+        required = options.required
+      )
+      .input__validation
+        span.input__validation-ok thanks!
+        span.input__validation-error error
+
+    - if (options.type === 'checkbox' || options.type === 'radio')
+      label.input__label
+        input.input__element(
+          type = options.type
+          name = options.name
+          tabindex = options.tabindex
+          required = options.required
+        )
+        if options.type === 'checkbox'
+          +toggle({mix: 'input__toggle'})
+        else
+          +tick-box({mix: 'input__tick-box'})
+        if options.label
+          .input__label-text=options.label
+

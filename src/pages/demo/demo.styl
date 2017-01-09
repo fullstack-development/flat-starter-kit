@@ -1,6 +1,6 @@
 .p-demo
-  padding-left 6%
-  padding-right 6%
+  padding-left 3rem
+  padding-right 3rem
   padding-top 2rem
 
 
@@ -17,7 +17,7 @@
     justify-content space-around
     align-items flex-end
 
-    &:not(:first-child)
+    & + &
       margin-top 1.4rem
 
     & .slider
@@ -26,3 +26,4 @@
 
   &__column
     flex-basis 45%
+    align-content flex-start

@@ -1,11 +1,17 @@
-//- options.items - массив элементов выпадающего списка
+//-
+  options.items - массив элементов выпадающего списка
+  options.name - form element name
 
 mixin drop-down(options)
   if !options
     - options = {}
 
   label.drop-down.js-drop-down
-    select.drop-down__select-box.js-drop-down__select-box
+    select.drop-down__select-box.js-drop-down__select-box(
+      name = options.name
+    )
       if options.items
         each item in options.items
-          option.drop-down__item #{item}
+          option.drop-down__item(
+            value = item
+          ) #{item}
