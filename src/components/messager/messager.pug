@@ -19,8 +19,7 @@ mixin messager(options)
     .messager__user
       .messager__user-name #{options.user.name}
       .messager__user-profile
-        .messager__user-profile-vert-aligner
-          +user-profile(options.user)
+        +user-profile(options.user)
     .messager__body
       .messager__links
         a(
