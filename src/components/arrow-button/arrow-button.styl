@@ -1,41 +1,43 @@
 .arrow-button
-  position relative
+  display flex
+  justify-content center
   outline none
   cursor pointer
   background-color color-first
   border-radius 50%
   border 3px solid color-first
-  font-size 3.5rem
-  vertical-align middle
-  text-align center
-  width 50px
-  height 50px
+  width 4.2rem
+  height 4.2rem
+
+  & svg
+    width 65%
+    height 65%
+
+  & svg path
+    fill white
 
   &_inactive
     background-color white
 
-    & .arrow-button__arrow svg path
-      fill color-first
+    & svg path
+        fill color-first
 
   &_disabled
     background-color color-disabled
     border-color color-disabled
 
-  &__arrow
-    height 70%
-    weight 70%
+  &_left
+    & svg
+      margin-right 0.3rem
 
-    & svg path
-      fill white
+  &_right
+    & svg
+      margin-left 0.3rem
 
-    &_left
-      margin-left -4px
+  &_up
+    & svg
+      margin-bottom 0.3rem
 
-    &_right
-      margin-right -4px
-
-    &_up
-      margin-top -4px
-
-    &_down
-      margin-bottom -4px
+  &_down
+    & svg
+      margin-top 0.3rem
