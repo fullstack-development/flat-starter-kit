@@ -7,28 +7,25 @@ const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const SpritesmithPlugin = require('webpack-spritesmith');
 
-const pages = [];
-
-fs
-  .readdirSync(path.resolve(__dirname, '..', 'src', 'pages'))
-  .filter((file) => {
-    return file.indexOf('base') === -1;
-  })
-  .forEach((file) => {
-    pages.push(file.split('/', 2));
-  });
+const pages = [
+  'arrow-button',
+];
 
 const htmlPlugins = pages.map(fileName => new HtmlWebpackPlugin({
+  name: fileName,
   filename: `${fileName}.html`,
-  template: `./src/pages/${fileName}/${fileName}.pug`,
+  template: `./src/testTemplate.pug`,
   alwaysWriteToDisk: true,
 }));
 
 module.exports = new configurator.default().merge({
-  entry: './src/entry.js',
+  entry: {
+    main: './src/entryTests.js',
+    globals: './src/testGlobals.js'
+  },
   output: {
     filename: '[name].js',
-    path: path.resolve(__dirname, '..', 'dist'),
+    path: path.resolve(__dirname, '..', 'distTests'),
     publicPath: '/static/'
   },
   resolve: {
@@ -41,11 +38,13 @@ module.exports = new configurator.default().merge({
     new webpack.DefinePlugin({
       NODE_ENV: JSON.stringify(process.env.NODE_ENV)
     }),
-    new FaviconsWebpackPlugin('./src/theme/favicon.png'),
     new webpack.ProgressPlugin(),
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery',
+      data: {
+        'arrow-button': 'components/arrow-button/__tests__/makeup-data'
+      },
     }),
     new SpritesmithPlugin({
       src: {
@@ -131,9 +130,12 @@ module.exports = new configurator.default().merge({
       }
     ]
   },
+  node: {
+    fs: 'empty',
+  },
   devServer: {
     inline: true,
     hot: true,
-    contentBase: 'dist'
+    contentBase: 'distTests'
   }
 });

@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "better-npm-run start-dev",
     "build": "better-npm-run build-prod",
-    "test": "test"
+    "test": "better-npm-run start-test"
   },
   "betterScripts": {
     "build-prod": {
@@ -24,6 +24,14 @@
         "NODE_PATH": "./src",
         "NODE_ENV": "development",
         "PORT": 8080
+      }
+    },
+    "start-test": {
+      "command": "./node_modules/.bin/webpack-dev-server",
+      "env": {
+        "NODE_PATH": "./src",
+        "NODE_ENV": "makeup",
+        "PORT": 8090
       }
     }
   },
