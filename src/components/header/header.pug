@@ -1,0 +1,14 @@
+include ../menu/menu
+
+//-
+  options.menuItems - массив елементов меню
+
+mixin header(options)
+  if !options
+    - options = {}
+
+  .header
+    .header__logo
+      | Page Logo
+    .header__menu
+      +menu({items: options.menuItems})

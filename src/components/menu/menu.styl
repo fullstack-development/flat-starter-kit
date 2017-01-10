@@ -1,0 +1,23 @@
+.menu
+  flex 1 0 auto
+  display flex
+  justify-content flex-end
+
+  &__item
+    font-family sans-serif
+    font-weight bold
+    font-size 1.2rem
+    text-transform uppercase
+    text-decoration none
+    color white
+    border 1px solid white
+    border-radius 0.3rem
+    padding 1rem 2rem
+    background-color color-first
+    text-align center
+
+    &:not(first-child)
+      margin-left 1rem
+
+    &:hover
+      background-color color-first-dark

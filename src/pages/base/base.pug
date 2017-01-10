@@ -1,6 +1,8 @@
+include ./base-data
 block variables
 
-include ../components/layout/layout
+include ../../components/layout/layout
+include ../../components/header/header
 
 doctype html
 html
@@ -12,7 +14,9 @@ html
   body
     +layout()
       +layout__header()
-        block header
+        +layout__container({basis: 1000, align: 'center'})
+          block header
+            +header({menuItems: locals.menuItems})
       +layout__main()
         block main
       +layout__footer()
