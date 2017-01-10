@@ -9,6 +9,9 @@ mixin menu(options)
   if !options.items
     - options.items = []
 
-  .menu
-    for item in options.items
-      a.menu__item(href = item.href)= item.name
+  .menu.js-menu
+    .menu__button.js-menu__button
+      include ./img/menu-options.svg
+    .menu__list.js-menu__list
+      for item in options.items
+        a.menu__item(href = item.href)= item.name
