@@ -12,7 +12,7 @@ const pages = [];
 fs
   .readdirSync(path.resolve(__dirname, '..', 'src', 'pages'))
   .filter((file) => {
-    return file.indexOf('base') === -1;
+    return file.indexOf('base') !== 0;
   })
   .forEach((file) => {
     pages.push(file.split('/', 2));

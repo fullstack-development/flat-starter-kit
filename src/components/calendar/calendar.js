@@ -29,8 +29,12 @@ class Calendar {
   }
 }
 
-$(() => {
-  $('.js-calendar').each((index, node) => {
-    new Calendar($(node));
+export default function renderComponent() {
+  $(() => {
+    $('.js-calendar').each((index, node) => {
+      new Calendar($(node));
+    });
   });
-});
+}
+
+renderComponent();

@@ -4,29 +4,15 @@ const webpack = require('webpack');
 const configurator = require('webpack-config');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const SpritesmithPlugin = require('webpack-spritesmith');
 
-const pages = [
-  'arrow-button',
-];
-
-const htmlPlugins = pages.map(fileName => new HtmlWebpackPlugin({
-  name: fileName,
-  filename: `${fileName}.html`,
-  template: `./src/testTemplate.pug`,
-  alwaysWriteToDisk: true,
-}));
-
 module.exports = new configurator.default().merge({
-  entry: {
-    main: './src/entryTests.js',
-    globals: './src/testGlobals.js'
-  },
+  entry: './src/entryMakeupTests.js',
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, '..', 'distTests'),
-    publicPath: '/static/'
+    publicPath: '/static/',
+    pathinfo: true,
   },
   resolve: {
     modules: [
@@ -42,9 +28,11 @@ module.exports = new configurator.default().merge({
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery',
-      data: {
-        'arrow-button': 'components/arrow-button/__tests__/makeup-data'
-      },
+    }),
+    new HtmlWebpackPlugin({
+      filename: `index.html`,
+      template: `./src/testTemplate.pug`,
+      alwaysWriteToDisk: true,
     }),
     new SpritesmithPlugin({
       src: {
@@ -60,7 +48,8 @@ module.exports = new configurator.default().merge({
       }
     }),
     new HtmlWebpackHarddiskPlugin(),
-  ].concat(htmlPlugins),
+    new webpack.HotModuleReplacementPlugin(),
+  ],
   module: {
     rules: [
       {
@@ -130,12 +119,10 @@ module.exports = new configurator.default().merge({
       }
     ]
   },
-  node: {
-    fs: 'empty',
-  },
   devServer: {
     inline: true,
     hot: true,
     contentBase: 'distTests'
-  }
+  },
+  devtool: 'eval',
 });

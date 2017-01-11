@@ -1,29 +1,31 @@
-import pug from 'pug'
+const pugTemplate = require('./index.pug');
 
 const data = {
-  label: 'arrow-button',
+  name: 'arrow-button',
+  type: 'module',
   items: [{
-    name: 'default',
+    name: 'default.arrow-button.component',
+    type: 'module'
   }, {
-    name: 'condition-inactive',
+    name: 'condition-inactive.arrow-button.component',
+    type: 'module'
   }, {
-    name: 'condition-disabled',
+    name: 'condition-disabled.arrow-button.component',
+    type: 'module'
   }]
 };
 
-const pugTemplate = pug.compileFile('index.pug');
-
-function template(blockName) {
+function template({module: blockName}) {
   switch (blockName) {
-    case 'default': {
+    case 'default.arrow-button.component': {
       return pugTemplate({});
     }
-    case 'condition-inactive': {
+    case 'condition-inactive.arrow-button.component': {
       return pugTemplate({options: {
         condition: 'inactive'
       }});
     }
-    case 'condition-disabled': {
+    case 'condition-disabled.arrow-button.component': {
       return pugTemplate({options: {
         condition: 'disabled'
       }});

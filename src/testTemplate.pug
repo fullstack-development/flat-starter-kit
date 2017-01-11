@@ -3,11 +3,8 @@ html
   head
     meta(charset = 'utf-8')
     title Test
-    script(src = '/static/globals.js')
     script
       include ../node_modules/makeup/dist/makeup.js
     style
       include ../node_modules/makeup/dist/makeup.css
   body
-    script
-      | Makeup(data['#{htmlWebpackPlugin.options.name}'], template['#{htmlWebpackPlugin.options.name}']);

@@ -5,6 +5,8 @@
 mixin arrow-button(options)
   if !options
     - options = {}
+  if !options.direction
+    - options.direction = 'left'
   -
     var classes = ''
     classes += options.condition ? ' arrow-button_' + options.condition : ''
