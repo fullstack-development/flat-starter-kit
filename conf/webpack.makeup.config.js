@@ -4,7 +4,6 @@ const webpack = require('webpack');
 const configurator = require('webpack-config');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
-const SpritesmithPlugin = require('webpack-spritesmith');
 
 module.exports = new configurator.default().merge({
   entry: './src/entryMakeupTests.js',
@@ -33,19 +32,6 @@ module.exports = new configurator.default().merge({
       filename: `index.html`,
       template: `./src/testTemplate.pug`,
       alwaysWriteToDisk: true,
-    }),
-    new SpritesmithPlugin({
-      src: {
-        cwd: path.resolve(__dirname, '../src/components/'),
-        glob: '**/*.png',
-      },
-      target: {
-        image: path.resolve(__dirname, '../src/theme/sprite-generated/sprite.png'),
-        css: path.resolve(__dirname, '../src/theme/sprite-generated/sprite.styl'),
-      },
-      apiOptions: {
-        cssImageRef: "~theme/sprite-generated/sprite.png"
-      }
     }),
     new HtmlWebpackHarddiskPlugin(),
     new webpack.HotModuleReplacementPlugin(),

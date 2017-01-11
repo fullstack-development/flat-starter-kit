@@ -2,4 +2,3 @@
 node_modules/
 dist/
 distTests/
-src/theme/sprite-generated

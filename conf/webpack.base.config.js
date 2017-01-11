@@ -5,7 +5,6 @@ const configurator = require('webpack-config');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
-const SpritesmithPlugin = require('webpack-spritesmith');
 
 const pages = [];
 
@@ -46,19 +45,6 @@ module.exports = new configurator.default().merge({
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery',
-    }),
-    new SpritesmithPlugin({
-      src: {
-        cwd: path.resolve(__dirname, '../src/components/'),
-        glob: '**/*.png',
-      },
-      target: {
-        image: path.resolve(__dirname, '../src/theme/sprite-generated/sprite.png'),
-        css: path.resolve(__dirname, '../src/theme/sprite-generated/sprite.styl'),
-      },
-      apiOptions: {
-        cssImageRef: "~theme/sprite-generated/sprite.png"
-      }
     }),
     new HtmlWebpackHarddiskPlugin(),
   ].concat(htmlPlugins),
