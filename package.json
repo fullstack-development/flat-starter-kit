@@ -81,5 +81,8 @@
     "webpack-dev-middleware": "^1.8.4",
     "webpack-dev-server": "^2.2.0-rc.0",
     "webpack-hot-middleware": "^2.13.1"
+  },
+  "devDependencies": {
+    "makeup": "^1.0.1"
   }
 }

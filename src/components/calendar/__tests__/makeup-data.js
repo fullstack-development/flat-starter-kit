@@ -3,7 +3,7 @@ import render from '../calendar';
 
 const data = {
   name: 'calendar',
-  type: 'module',
+  snippet: render,
   items: [{
     name: 'default.calendar.component',
     type: 'module',
@@ -13,7 +13,6 @@ const data = {
 function template({module: blockName}) {
   switch (blockName) {
     case 'default.calendar.component': {
-      setTimeout(() => {render()}, 300);
       return pugTemplate({});
     }
   }
