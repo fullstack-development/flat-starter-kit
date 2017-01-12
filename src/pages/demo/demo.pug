@@ -29,18 +29,18 @@ block main
   +layout__container({mix: 'p-demo', basis: 700, align: 'center', wrap: 'wrap'})
     h2 standard buttons
     +layout__container({wrap: 'wrap', basis: 500, align: 'center'})
-      +layout__container({mix: 'p-demo__row'})
+      +layout__container({mix: 'p-demo__row', wrap: 'wrap'})
         +button({size: 'small'})
         +button()
         +button({type: 'error'})
         +button({type: 'error', size: 'small'})
-      +layout__container({mix: 'p-demo__row'})
+      +layout__container({mix: 'p-demo__row', wrap: 'wrap'})
         +button({isInverted: true, size: 'small'})
         +button({isInverted: true})
         +button({isInverted: true, type: 'error'})
         +button({isInverted: true, type: 'error', size: 'small'})
     h2 arrow buttons
-    +layout__container({mix: 'p-demo__row', basis: 450, align: 'center'})
+    +layout__container({mix: 'p-demo__row', basis: 450, align: 'center', wrap: 'wrap'})
       +arrow-button({direction: 'left', condition: 'inactive'})
       +arrow-button({direction: 'right', condition: 'inactive'})
       +arrow-button({direction: 'up', condition: 'disabled'})
@@ -55,13 +55,13 @@ block main
       +percentage({percent: 89})
       +pie-chart({items: [1, 3, 4, 5]})
     h2 sliders
-    +layout__container({mix: 'p-demo__row'})
+    +layout__container({mix: 'p-demo__row', wrap: 'wrap'})
       +slider({tooltipEnabled: true, color: '#4eb7a8'})
       +slider({scaleEnabled: true, color: '#e75735'})
     h2 stages
     +stages({length: 5, progress: 3})
     h2 form elements
-    +layout__container()
+    +layout__container({wrap: 'wrap'})
       +layout__container({mix: 'p-demo__column', align: 'left', display: 'block'})
         +feedback()
       +layout__container({mix: 'p-demo__column', align: 'right', wrap : 'wrap'})
@@ -73,7 +73,7 @@ block main
         +layout__container({mix: 'p-demo__row', basis: 100, align: 'center'})
           +tick-box()
           +tick-box({enabled: true})
-    +layout__container()
+    +layout__container({wrap: 'wrap'})
       +layout__container({mix: 'p-demo__column', align: 'left', display: 'block'})
         h2 search / drop down
         +search()
@@ -84,14 +84,14 @@ block main
           for profile in locals.profiles
             +user-profile(profile)
     h2 news & events
-    +layout__container()
+    +layout__container({wrap: 'wrap'})
       +layout__container({mix: 'p-demo__column', align: 'left', display: 'block'})
         +news(locals.news[0])
       +layout__container({mix: 'p-demo__column', align: 'right', display: 'block'})
         +event(locals.events[0])
     h2 location
     +location(locals.location)
-    +layout__container()
+    +layout__container({wrap: 'wrap'})
       +layout__container({mix: 'p-demo__column', align: 'left', display: 'block'})
         h2 calendar
         +calendar()

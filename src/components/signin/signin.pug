@@ -1,0 +1,22 @@
+include ../button/button
+include ../input/input
+
+mixin signin()
+  form.signin.js-signin
+   +input({
+     name: 'login',
+     type: 'text',
+     placeholder: 'Login or email'
+   })
+   +input({
+     name: 'password',
+     type: 'password',
+     placeholder: 'Password'
+   })
+   .signin__submit
+     +input({
+       name: 'remember',
+       type: 'checkbox',
+       label: 'Remember me'
+     })
+     +button({text: 'Sign in', isSubmit: true})

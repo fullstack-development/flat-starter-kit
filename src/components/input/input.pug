@@ -15,7 +15,7 @@ mixin input(options)
     - options = {}
 
   .input
-    - if (options.type === 'text' || options.type === 'email')
+    - if (options.type === 'text' || options.type === 'email' || options.type === 'password')
       input.input__element(
         type = options.type
         name = options.name
@@ -24,9 +24,10 @@ mixin input(options)
         tabindex = options.tabindex
         required = options.required
       )
-      .input__validation
-        span.input__validation-ok thanks!
-        span.input__validation-error error
+      - if (options.type === 'email' || options.pattern)
+        .input__validation
+          span.input__validation-ok thanks!
+          span.input__validation-error error
 
     - if (options.type === 'checkbox' || options.type === 'radio')
       label.input__label

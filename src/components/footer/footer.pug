@@ -3,15 +3,15 @@
   options.items[0].name - имя элемента меню
   options.items[0].href - ссылка элемента меню
 
-mixin menu(options)
+mixin footer(options)
   if !options
     - options = {}
   if !options.items
     - options.items = []
 
-  .menu.js-menu
-    .menu__button.js-menu__button
-      include ./img/menu-options.svg
-    nav.menu__list.js-menu__list
-      for item in options.items
-        a.menu__item(href = item.href)= item.name
+  .footer
+     nav.footer__nav
+       for item in options.items
+         a.footer__nav-item(href = item.href)= item.name
+     .footer__copyright
+       | &copy; 2016-2017

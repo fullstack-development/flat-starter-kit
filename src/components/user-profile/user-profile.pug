@@ -14,27 +14,28 @@ mixin user-profile(options)
     .user-profile__frame
       if options.photo
         img.user-profile__photo(src=require('../../components/user-profile/img/' + options.photo), alt = 'photo')
-    .user-profile__tooltip(
-    class = (options.facebook || options.twitter || options.instagram) ? 'user-profile__tooltip_active' : ''
-    )
-      span.user-profile__name= options.name || ''
-      span.user-profile__profession= options.profession || ''
-      .user-profile__social-container
-        a.user-profile__social.user-profile__social_facebook(
-        href = options.facebook || false
-        class = options.facebook ? 'user-profile__social_active' : ''
-        target = '_blank'
-        rel = "noopener noreferrer"
-        )
-        a.user-profile__social.user-profile__social_twitter(
-        href = options.twitter || false
-        class = options.twitter ? 'user-profile__social_active' : ''
-        target = '_blank'
-        rel = "noopener noreferrer"
-        )
-        a.user-profile__social.user-profile__social_instagram(
-        href = options.instagram || false
-        class = options.instagram ? 'user-profile__social_active' : ''
-        target = '_blank'
-        rel = "noopener noreferrer"
-        )
+    .user-profile__tooltip-wrapper
+      .user-profile__tooltip(
+      class = (options.facebook || options.twitter || options.instagram) ? 'user-profile__tooltip_active' : ''
+      )
+        span.user-profile__name= options.name || ''
+        span.user-profile__profession= options.profession || ''
+        .user-profile__social-container
+          a.user-profile__social.user-profile__social_facebook(
+          href = options.facebook || false
+          class = options.facebook ? 'user-profile__social_active' : ''
+          target = '_blank'
+          rel = "noopener noreferrer"
+          )
+          a.user-profile__social.user-profile__social_twitter(
+          href = options.twitter || false
+          class = options.twitter ? 'user-profile__social_active' : ''
+          target = '_blank'
+          rel = "noopener noreferrer"
+          )
+          a.user-profile__social.user-profile__social_instagram(
+          href = options.instagram || false
+          class = options.instagram ? 'user-profile__social_active' : ''
+          target = '_blank'
+          rel = "noopener noreferrer"
+          )

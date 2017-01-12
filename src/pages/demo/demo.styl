@@ -1,8 +1,5 @@
 .p-demo
-  padding-left 3rem
-  padding-right 3rem
-  padding-top 2rem
-
+  padding 2rem
 
   & h2
     flex-basis 100%
@@ -21,9 +18,9 @@
       margin-top 1.4rem
 
     & .slider
+      flex-basis 100%
       align-self flex-start
-      flex-basis 45%
+      column(xs, 6)
 
   &__column
-    flex-basis 45%
-    align-content flex-start
+    column(xs, 6)

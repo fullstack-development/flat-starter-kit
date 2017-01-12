@@ -1,0 +1,14 @@
+extends ../base/base-guest
+
+include ../../components/layout/layout
+include ../../components/signin/signin
+
+block variables
+
+block title
+  | Sign In Page
+
+block main
+  +layout__container({mix: 'p-signin'})
+    +signin()
+

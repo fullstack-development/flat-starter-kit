@@ -3,7 +3,7 @@ xs = 575px
 sm = 767px
 md = 991px
 lg = 1199px
-xl = 1449px
+xl = 1440px
 
 color-first = #4eb7a8
 color-second = #e75735
@@ -23,3 +23,10 @@ media-breakpoint-down(width)
 media-breakpoint-between(min-width, max-width)
   @media (min-width: width + 1) and (max-width: max-width)
     {block}
+
+column(screen-width, count)
+  padding-left 1rem
+  padding-right 1rem
+  padding-bottom 1rem
+  +media-breakpoint-up(screen-width)
+    flex-basis (100% / 12 * count)

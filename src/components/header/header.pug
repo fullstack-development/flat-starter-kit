@@ -8,7 +8,7 @@ mixin header(options)
     - options = {}
 
   .header
-    .header__logo
-      | Page Logo
+    a.header__logo(href = '/home.html')
+      | Flat
     .header__menu
       +menu({items: options.menuItems})

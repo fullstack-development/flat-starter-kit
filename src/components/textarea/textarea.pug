@@ -1,0 +1,16 @@
+//-
+  options.name - form element name
+  options.placeholder - input placeholder
+  options.tabindex - input tabindex
+  options.required - input required
+
+mixin textarea(options)
+  if !options
+    - options = {}
+
+  textarea.textarea(
+    name = options.name,
+    placeholder = options.placeholder,
+    tabindex = options.tabindex,
+    required = options.required
+  )

@@ -16,8 +16,6 @@ class Button {
   }
 
   _showRippleEffect(event) {
-    event.preventDefault();
-
     const $div = $('<div/>');
     const btnOffset = this.$component.offset();
     const xPos = event.pageX - btnOffset.left;

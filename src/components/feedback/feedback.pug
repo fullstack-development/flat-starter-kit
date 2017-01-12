@@ -1,44 +1,44 @@
 include ../button/button
 include ../input/input
+include ../textarea/textarea
 
 mixin feedback()
-  .feedback
-    form.feedback__form
-      +input({
-        type: 'text',
-        name: 'feedback-name',
-        placeholder: 'Your Name',
-        pattern: '^[A-Za-zА-Яа-яЁё\\s]+$'
-      })
-      +input({
-        type: 'email',
-        name: 'feedback-email',
-        placeholder: 'Your Email',
-        required: true
-      })
-      textarea.feedback__textarea(
-        name = 'feedback-message'
-        placeholder = 'Your Message'
-      )
-      +input({
-        type: 'checkbox',
-        name: 'feedback-subscribe',
-        label: 'Subscribe to the newsletter'
-      })
-      +input({
-        type: 'radio',
-        name: 'feedback-age',
-        label: 'My age is less than 14 years'
-      })
-      +input({
-        type: 'radio',
-        name: 'feedback-age',
-        label: 'My age from 14 years to 18 years'
-      })
-      +input({
-        type: 'radio',
-        name: 'feedback-age',
-        label: 'My age is 18 years or older'
-      })
-      .feedback__submit
-        +button({text: 'submit', isSubmit: true})
+  form.feedback.js-feedback
+    +input({
+      type: 'text',
+      name: 'feedback-name',
+      placeholder: 'Your Name',
+      pattern: '^[A-Za-zА-Яа-яЁё\\s]+$'
+    })
+    +input({
+      type: 'email',
+      name: 'feedback-email',
+      placeholder: 'Your Email',
+      required: true
+    })
+    +textarea({
+      name: 'feedback-message',
+      placeholder: 'Your Message'
+    })
+    +input({
+      type: 'checkbox',
+      name: 'feedback-subscribe',
+      label: 'Subscribe to the newsletter'
+    })
+    +input({
+      type: 'radio',
+      name: 'feedback-age',
+      label: 'My age is less than 14 years'
+    })
+    +input({
+      type: 'radio',
+      name: 'feedback-age',
+      label: 'My age from 14 years to 18 years'
+    })
+    +input({
+      type: 'radio',
+      name: 'feedback-age',
+      label: 'My age is 18 years or older'
+    })
+    .feedback__submit
+      +button({text: 'submit', isSubmit: true})
