@@ -2,6 +2,7 @@ const path = require('path');
 const fs = require('fs');
 const webpack = require('webpack');
 const configurator = require('webpack-config');
+const CleanPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
@@ -37,6 +38,7 @@ module.exports = new configurator.default().merge({
     ]
   },
   plugins: [
+    new CleanPlugin(['./dist'], { root: path.resolve(__dirname, '..') }),
     new webpack.DefinePlugin({
       NODE_ENV: JSON.stringify(process.env.NODE_ENV)
     }),
