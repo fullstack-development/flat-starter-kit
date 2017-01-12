@@ -29,8 +29,6 @@ module.exports = new configurator.default().merge({
       jQuery: 'jquery',
     }),
     new HtmlWebpackPlugin({
-      filename: `index.html`,
-      template: `./src/testTemplate.pug`,
       alwaysWriteToDisk: true,
     }),
     new HtmlWebpackHarddiskPlugin(),

@@ -83,6 +83,7 @@
     "webpack-hot-middleware": "^2.13.1"
   },
   "devDependencies": {
-    "makeup": "^1.0.1"
+    "makeup": "^1.0.1",
+    "script-loader": "^0.7.0"
   }
 }

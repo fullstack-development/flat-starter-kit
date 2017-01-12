@@ -1,8 +1,10 @@
-const pugTemplate = require('./index.pug');
+import pugTemplate from './index.pug';
+import render from '../button';
 
 const data = {
   name: 'button',
   type: 'module',
+  snippet: render,
   items: [{
     name: 'default.button.component',
     type: 'module',

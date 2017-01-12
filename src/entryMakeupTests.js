@@ -1,4 +1,6 @@
 import './theme/global.styl';
+import 'script-loader?window=>global!makeup';
+import 'makeup/dist/makeup.css';
 
 function requireAll(requireContext) {
     return requireContext.keys().map(requireContext);

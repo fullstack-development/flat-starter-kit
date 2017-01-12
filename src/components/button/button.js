@@ -36,8 +36,12 @@ class Button {
   }
 }
 
-$(() => {
-  $('.js-button').each((index, node) => {
-    new Button($(node));
+export default function renderComponent() {
+  $(() => {
+    $('.js-button').each((index, node) => {
+      new Button($(node));
+    });
   });
-});
+}
+
+renderComponent();
