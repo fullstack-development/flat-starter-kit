@@ -1,6 +1,7 @@
 extends ../base/base-guest
 
 include ../../components/toggle/toggle
+include ../../components/signup/signup
 
 block variables
 
@@ -8,3 +9,5 @@ block title
   | Sign Up Page
 
 block main
+  +layout__container({mix: 'p-signin'})
+    +signup()

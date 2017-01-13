@@ -1,6 +1,7 @@
 .input
   display flex
   align-items stretch
+  position relative
 
   &__element
     width 100%
@@ -17,7 +18,10 @@
 
     &[type='checkbox']
     &[type='radio']
-      display none
+      position absolute
+      left 1rem
+      height 1px
+      width 1px
 
   &__label
     display flex

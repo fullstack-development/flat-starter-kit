@@ -1,0 +1,50 @@
+include ../button/button
+include ../input/input
+
+mixin signup()
+  form.signup.js-signup
+    +input({
+     name: 'name',
+     type: 'text',
+     placeholder: 'Your name',
+     required: true
+    })
+    +input({
+     name: 'email',
+     type: 'email',
+     placeholder: 'Email',
+     required: true
+    })
+    +input({
+     name: 'login',
+     type: 'text',
+     placeholder: 'Login',
+     required: true
+    })
+    +input({
+     name: 'password',
+     type: 'password',
+     placeholder: 'Password',
+     required: true
+    })
+    +input({
+     name: 'confirm',
+     type: 'password',
+     placeholder: 'Confirm password',
+     required: true
+    })
+    .signup__confirm-error.js-signup__confirm-error= 'Confirm Password don\'t equal Password'
+    +input({
+     name: 'remember',
+     type: 'checkbox',
+     label: 'I agree to the ',
+     required: true
+    })
+      a.signup__privacy(href = '/privacy.html')= 'Privacy Policy'
+    +input({
+     name: 'remember',
+     type: 'checkbox',
+     label: 'Subscribe to the project news'
+    })
+    .signup__submit
+     +button({text: 'Sign in', isSubmit: true})

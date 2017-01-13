@@ -67,8 +67,8 @@ block main
       +layout__container({mix: 'p-demo__column', align: 'right', wrap : 'wrap'})
         h2 toggles
         +layout__container({mix: 'p-demo__row', basis: 150, align: 'center'})
-          +toggle()
-          +toggle({state: true, textOn: 'yes', textOff: 'no'})
+          +toggle({textTrue: 'on', textFalse: 'off'})
+          +toggle({state: true})
         h2 tick boxes
         +layout__container({mix: 'p-demo__row', basis: 100, align: 'center'})
           +tick-box()

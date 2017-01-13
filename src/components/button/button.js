@@ -34,11 +34,15 @@ class Button {
   }
 }
 
-export default function renderComponent() {
+export default function renderComponent(callbackWhenInitialized) {
   $(() => {
-    $('.js-button').each((index, node) => {
-      new Button($(node));
+    const buttons = $('.js-button').map((index, node) => {
+      return new Button($(node));
     });
+
+    if (callbackWhenInitialized && typeof callbackWhenInitialized === 'function') {
+      callbackWhenInitialized(buttons);
+    }
   });
 }
 

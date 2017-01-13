@@ -1,6 +1,6 @@
 //-
-  options.textOn - текст Вкл. (по-умолчанию 'on')
-  options.textOff - текст Выкл. (по-умолчанию 'off')
+  options.textTrue - текст Вкл. (по-умолчанию 'yes')
+  options.textFalse - текст Выкл. (по-умолчанию 'no')
   options.state - состояние выключателя (true - включен, false - выключен, по-умолчанию false)
   options.mix - любая строка, будет добавлена в классы компонента
 
@@ -14,7 +14,7 @@ mixin toggle(options)
 
   .toggle.js-toggle(class = classes)
     .toggle__text
-      .toggle__text-on= options.textOn || 'on'
-      .toggle__text-off= options.textOff || 'off'
+      .toggle__text-on= options.textOn || 'yes'
+      .toggle__text-off= options.textOff || 'no'
     .toggle__switcher
       .toggle__switch
