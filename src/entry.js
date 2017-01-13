@@ -1,3 +1,4 @@
+import 'normalize.css';
 import './theme/global.styl';
 
 function requireAll(requireContext) {
