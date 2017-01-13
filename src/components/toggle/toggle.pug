@@ -14,7 +14,7 @@ mixin toggle(options)
 
   .toggle.js-toggle(class = classes)
     .toggle__text
-      .toggle__text-on= options.textOn || 'yes'
-      .toggle__text-off= options.textOff || 'no'
+      .toggle__text-on= options.textTrue || 'yes'
+      .toggle__text-off= options.textFalse || 'no'
     .toggle__switcher
       .toggle__switch
