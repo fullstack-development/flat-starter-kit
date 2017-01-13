@@ -1,6 +1,8 @@
 //-
   options.items - массив элементов выпадающего списка
   options.name - form element name
+  options.tabindex - input tabindex
+  options.required - input required
 
 mixin drop-down(options)
   if !options
@@ -9,6 +11,8 @@ mixin drop-down(options)
   label.drop-down.js-drop-down
     select.drop-down__select-box.js-drop-down__select-box(
       name = options.name
+      tabindex = options.tabindex
+      required = options.required
     )
       if options.items
         each item in options.items

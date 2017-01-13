@@ -1,12 +1,95 @@
 extends ../base/base
 
-include ../../components/user-profile/user-profile
-
-block variables
-  include ./profile-data
+include ../../components/input/input
+include ../../components/drop-down/drop-down
+include ../../components/button/button
 
 block title
   | Profile Page
 
 block main
-  +user-profile(locals.profile)
+  +layout__container({mix: 'p-profile', wrap: 'wrap'})
+    h1.p-profile__title Settings
+    form.p-profile__basic-info
+      h2.p-profile__settings-title Basic Info
+      +input({
+        name: 'firstName',
+        type: 'text',
+        placeholder: 'First Name'
+      })
+      +input({
+        name: 'lastName',
+        type: 'text',
+        placeholder: 'Last Name'
+      })
+      +drop-down({
+        name: 'sex',
+        items: ['Female', 'Male']
+      })
+      +input({
+        name: 'profession',
+        type: 'text',
+        placeholder: 'Profession'
+      })
+      +input({
+        name: 'hometown',
+        type: 'text',
+        placeholder: 'Hometown'
+      })
+      +button({text: 'Save', isSubmit: true})
+    form.p-profile__contact-info
+      h2.p-profile__settings-title Contact Info
+      +input({
+        name: 'country',
+        type: 'text',
+        placeholder: 'Country'
+      })
+      +input({
+        name: 'City',
+        type: 'text',
+        placeholder: 'City'
+      })
+      +input({
+        name: 'mobile',
+        type: 'text',
+        placeholder: 'Mobile'
+      })
+      +input({
+        name: 'skype',
+        type: 'text',
+        placeholder: 'Skype'
+      })
+      +input({
+        name: 'website',
+        type: 'text',
+        placeholder: 'Website'
+      })
+      +button({text: 'Save', isSubmit: true})
+    form.p-profile__interests
+      h2.p-profile__settings-title Profile settings
+      +input({
+        name: 'gifts',
+        type: 'checkbox',
+        label: 'Hide gifts section'
+      })
+      +input({
+        name: 'posts',
+        type: 'checkbox',
+        label: 'Show only my posts by default'
+      })
+      +input({
+        name: 'comments',
+        type: 'checkbox',
+        label: 'Disable wall comments'
+      })
+      +input({
+        name: 'stickers',
+        type: 'checkbox',
+        label: 'Suggest stickers while typing'
+      })
+      +input({
+        name: 'accessibility',
+        type: 'checkbox',
+        label: 'Accessibility features'
+      })
+      +button({text: 'Save', isSubmit: true})

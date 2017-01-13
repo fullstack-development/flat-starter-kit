@@ -6,12 +6,14 @@ mixin signin()
    +input({
      name: 'login',
      type: 'text',
-     placeholder: 'Login or email'
+     placeholder: 'Login or email',
+     required: true
    })
    +input({
      name: 'password',
      type: 'password',
-     placeholder: 'Password'
+     placeholder: 'Password',
+     required: true
    })
    .signin__submit
      +input({
