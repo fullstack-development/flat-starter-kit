@@ -4,7 +4,7 @@
   position relative
 
   &__element
-    width 100%
+    flex-grow 1
     background-color #e5e5e5
     color #888888
     font-size 1.2rem
@@ -22,6 +22,9 @@
       left 1rem
       height 1px
       width 1px
+
+      +onlyFirefox()
+        visibility hidden
 
   &__label
     display flex
@@ -44,7 +47,7 @@
     align-items center
     border-radius 4px
     min-width 6rem
-    margin-left 3%
+    margin-left 1rem
 
     &::after
       content ''
@@ -55,6 +58,7 @@
       width 0.5rem
       height 0.5rem
       left -0.25rem
+      top calc(50% - 0.25rem)
       border-bottom-left-radius 1px
 
   &__validation-ok

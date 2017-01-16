@@ -16,7 +16,7 @@ dropDownHeight = 2.3rem
       border-bottom-right-radius 0
 
       & .ui-selectmenu-icon::after
-        mask-image url(./img/up.svg)
+        background-image url(./img/up.svg)
 
   & .ui-selectmenu-icon
     display flex
@@ -30,11 +30,8 @@ dropDownHeight = 2.3rem
       display block
       color transparent
       flex-basis 50%
-      background-color white
-      mask-position center center
-      mask-repeat no-repeat
+      background url(./img/down.svg) no-repeat center center
       mask-size contain
-      mask-image url(./img/down.svg)
 
   & .ui-selectmenu-text
     height: dropDownHeight;

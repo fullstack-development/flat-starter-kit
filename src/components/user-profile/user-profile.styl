@@ -2,9 +2,7 @@ user-profile_height = 7.8rem
 
 .user-profile
   position relative
-
-  display inline-flex
-  align-items center
+  display inline
 
   width user-profile_height
   height user-profile_height
@@ -30,6 +28,8 @@ user-profile_height = 7.8rem
     display none
     position absolute
     left 100%
+    bottom 0
+    transform 'translateY(calc((100% - %s) / 2))' % user-profile_height
     z-index 2
     padding-left 10%
     min-width 174%
@@ -58,6 +58,7 @@ user-profile_height = 7.8rem
       width 0.7rem
       height 0.7rem
       left -0.3rem
+      top calc(50% - 0.35rem)
       border-bottom-left-radius 0.25rem
 
     &_active
@@ -67,11 +68,11 @@ user-profile_height = 7.8rem
       & .user-profile__name
         color color-second
 
-      & .user-profile__social
-        background-color #4f4f4f
+      & .user-profile__social path
+        fill #4f4f4f
 
-      & .user-profile__social_active
-        background-color color-second
+      & .user-profile__social_active path
+        fill color-second
 
   &:hover &__tooltip-wrapper
     visibility visible
@@ -97,26 +98,18 @@ user-profile_height = 7.8rem
     height 2.3rem
     display flex
     align-items stretch
+    justify-content space-around
     padding 0 10%
     margin-top auto
     padding-top 0.3rem
 
   &__social
     text-decoration none
-    background-color white
-    width 100%
-    mask-size contain
-    mask-repeat no-repeat
-    mask-position center center
+    height 2rem
+    width 2rem
+
+    & path
+      fill white
 
     &_active
       cursor pointer
-
-    &_facebook
-      mask-image url(./img/facebook-logo.svg)
-
-    &_twitter
-      mask-image url(./img/twitter-logo.svg)
-
-    &_instagram
-      mask-image url(./img/instagram-logo.svg)

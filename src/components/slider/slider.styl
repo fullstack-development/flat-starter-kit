@@ -13,8 +13,6 @@
     border none
     top -0.6rem
     margin-left -0.8rem
-    display flex
-    justify-content center
     cursor pointer
 
     &:focus
@@ -35,10 +33,10 @@
     position absolute
     bottom 140%
     display none
-    justify-content center
+    transform: translateX(calc((-100% + 1.5rem) / 2));
 
     &_active
-      display flex
+      display block
 
     &::before
       content ''
@@ -48,7 +46,8 @@
       width 0.5rem
       height 0.5rem
       position absolute
-      top 89%
+      bottom: -0.25rem
+      left: calc(50% - 0.25rem)
       border-bottom-right-radius 1px
 
   &__scale

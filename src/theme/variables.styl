@@ -31,3 +31,8 @@ column(screen-width, count)
   flex-shrink 0
   +media-breakpoint-up(screen-width)
     flex-basis (100% / 12 * count)
+
+onlyFirefox()
+  @-moz-document url-prefix()
+    &
+      {block}

@@ -17,27 +17,27 @@
 
   &__user-profile
     position relative
-    display flex
-    justify-content center
     background-color color-first-dark
     height 2.9rem
 
     & .user-profile
       position absolute
       bottom 0
-      transform translate(0, 50%)
+      left 50%
+      transform translate(-50%, 50%)
 
   &__body
     display flex
     flex-direction column
     align-items stretch
-    padding 8%
+    padding 2rem
     background-color #f2f2f2
     font-family LatoBold, sans-serif
     font-weight bold
+    min-height 33rem
 
     & > *:not(:last-child)
-      margin-bottom 8%
+      margin-bottom 2rem
 
   &__links
     display flex
@@ -135,8 +135,9 @@
     text-align left
     font-size 1.2rem
     line-height 1.3rem
-    padding 7%
-    height 14%
+    padding 1.5rem
+    height 6rem
+    width 100%
     resize none
     font-family  inherit
 

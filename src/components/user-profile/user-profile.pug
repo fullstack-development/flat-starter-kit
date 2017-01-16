@@ -21,21 +21,24 @@ mixin user-profile(options)
         span.user-profile__name= options.name || ''
         span.user-profile__profession= options.profession || ''
         .user-profile__social-container
-          a.user-profile__social.user-profile__social_facebook(
+          a.user-profile__social(
           href = options.facebook || false
           class = options.facebook ? 'user-profile__social_active' : ''
           target = '_blank'
           rel = "noopener noreferrer"
           )
-          a.user-profile__social.user-profile__social_twitter(
+            include ./img/facebook-logo.svg
+          a.user-profile__social(
           href = options.twitter || false
           class = options.twitter ? 'user-profile__social_active' : ''
           target = '_blank'
           rel = "noopener noreferrer"
           )
-          a.user-profile__social.user-profile__social_instagram(
+            include ./img/twitter-logo.svg
+          a.user-profile__social(
           href = options.instagram || false
           class = options.instagram ? 'user-profile__social_active' : ''
           target = '_blank'
           rel = "noopener noreferrer"
           )
+            include ./img/instagram-logo.svg
