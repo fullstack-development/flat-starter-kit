@@ -16,6 +16,6 @@ mixin news(options)
           alt = 'news image'
         )
     .news__preview
-      .news__title= options.title ? options.title : ''
-      .news__date= options.date ? options.date : ''
-      .news__description= options.desc ? options.desc : ''
+      .news__title= options.title || ''
+      .news__date= options.date || ''
+      .news__description= options.desc || ''
