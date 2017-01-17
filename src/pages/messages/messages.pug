@@ -1,0 +1,17 @@
+extends ../base/base
+
+include ../../components/drop-down/drop-down
+include ../../components/messager/messager
+
+block title
+  | Messages Page
+
+block main
+  - data = htmlWebpackPlugin.options.getData()
+
+  +layout__container({mix: 'p-messages js-p-messages', basis: 700, align: 'center', wrap: 'wrap'})
+    h1.p-messages__title Messages
+    .p-messages__contacts
+      for item in data.users
+        .p-messages__contact-item.js-p-messages__contact-item(data-login = item.login)= item.name
+    .p-messages__messager.js-p-messages__messager

@@ -1,11 +1,16 @@
 import './messager.styl';
 import $ from 'jquery';
+import pugTemplate from './template.pug';
 
 class Messager {
   constructor($component) {
     this.$component = $component;
     this._hideScroll();
     this._attachEventHandlers();
+  }
+
+  static template(options) {
+    return pugTemplate({options});
   }
 
   _hideScroll() {
@@ -30,7 +35,7 @@ class Messager {
       $input.val('');
     });
   }
-};
+}
 
 
 $(() => {
@@ -38,3 +43,5 @@ $(() => {
     new Messager($(node));
   });
 });
+
+export default Messager;

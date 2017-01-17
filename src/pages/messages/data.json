@@ -1,0 +1,49 @@
+{
+  "users": [
+    {
+      "login": "sara1",
+      "name": "Sarah Brown",
+      "profession": "developer"
+    },
+    {
+      "login": "john1",
+      "name": "John Smith",
+      "profession": "ux designer",
+      "photo": "face1.jpg",
+      "facebook": "https://fb.com"
+    },
+    {
+      "login": "sara2",
+      "name": "Sarah Brown",
+      "profession": "developer",
+      "photo": "face2.jpg",
+      "twitter": "https://twitter.com"
+    }
+  ],
+  "messages": [{
+    "login": "john1",
+    "messages": [
+      {
+        "isIncoming": true,
+        "text": "Hey! So are we cool to meet at the art gallery? Say 10pm"
+      },
+      {
+        "isIncoming": false,
+        "text": "Good))"
+      }
+    ]
+  }, {
+    "login": "sara2",
+    "messages": [
+      {
+        "isIncoming": true,
+        "text": "Hey! So are we cool to meet at the art gallery? Say 8pm"
+      },
+      {
+        "isIncoming": false,
+        "text": "Ok))"
+      }
+    ]
+  }
+  ]
+}

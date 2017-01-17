@@ -1,0 +1,47 @@
+.p-messages
+
+  & > *
+    flex-basis 100%
+
+  &__contacts
+    display flex
+    flex-wrap wrap
+    align-items stretch
+    overflow hidden
+    column(xs, 4)
+
+    +media-breakpoint-up(xs)
+      flex-wrap nowrap
+      flex-direction column
+
+  &__contact-item
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 0.3rem;
+    padding: 1rem 2rem;
+    background-color: #4eb7a8;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin 0.5rem
+
+    +media-breakpoint-up(xs)
+      margin 0
+      margin-top 0.5rem
+      margin-bottom 0.5rem
+
+    &:hover:not([class*=active])
+      color white
+      background-color: #28a290;
+
+    &_active
+      background-color white;
+      color #4eb7a8
+      border: 1px solid #4eb7a8;
+
+  &__messager
+    column(xs, 8)
