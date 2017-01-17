@@ -8,8 +8,8 @@ mixin news(options)
   if !options
     - options = {}
 
-  .news
+  .news.js-news
     .news__title= options.title || ''
     .news__date= options.date || ''
-    .news__description= options.desc || ''
+    .news__description.js-news__description= options.desc || ''
     .news__text= options.text || ''

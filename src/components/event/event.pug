@@ -10,11 +10,11 @@ mixin event(options)
   if !options
     - options = {}
 
-  .event
+  .event.js-event
     .event__date
       .event__day= options.dateDay
       .event__month= options.dateMonth.slice(0, 3)
     .event__title= options.title ? options.title : ''
-    .event__description= options.desc ? options.desc : ''
+    .event__description.js-event__description= options.desc ? options.desc : ''
     .event__button-add
       +button({text: "add to calendar", isInverted: true, size: "small"})
