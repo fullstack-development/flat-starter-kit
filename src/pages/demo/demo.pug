@@ -13,6 +13,7 @@ include ../../components/tick-box/tick-box
 include ../../components/search/search
 include ../../components/user-profile/user-profile
 include ../../components/drop-down/drop-down
+include ../../components/activity-card/activity-card
 include ../../components/news/news
 include ../../components/event/event
 include ../../components/location/location
@@ -86,9 +87,11 @@ block main
     h2 news & events
     +layout__container({wrap: 'wrap'})
       +layout__container({mix: 'p-demo__column', align: 'left', display: 'block'})
-        +news(locals.news[0])
+        +activity-card({image: locals.news[0].image})
+          +news(locals.news[0])
       +layout__container({mix: 'p-demo__column', align: 'right', display: 'block'})
-        +event(locals.events[0])
+        +activity-card({image: locals.events[0].image})
+          +event(locals.events[0])
     h2 location
     +location(locals.location)
     +layout__container({wrap: 'wrap'})

@@ -1,5 +1,6 @@
 extends ../base/base
 
+include ../../components/activity-card/activity-card
 include ../../components/news/news
 include ../../components/event/event
 
@@ -13,7 +14,8 @@ block main
   +layout__container({mix: 'p-activity', wrap: 'wrap'})
     h1.p-activity__title News & events
     for item in locals.activityes
-      if item.type === 'news'
-        +news(item.data)
-      else if item.type === 'event'
-        +event(item.data)
+      +activity-card({image: item.image})
+        if item.type === 'news'
+          +news(item.data)
+        else if item.type === 'event'
+          +event(item.data)

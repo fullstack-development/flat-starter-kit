@@ -1,42 +1,30 @@
 .event
+  flex 1 1
   display flex
+  flex-direction column
   align-items stretch
-  border-radius 0.3rem
-  height: 17.65rem;
+  padding 1.5rem
+  background-color color-first
+  color white
+  text-align left
 
-  &__image-frame
-    overflow hidden
-    border-bottom-left-radius 0.3rem
-    border-top-left-radius 0.3rem
-    width 35%
-    background url(./img/default.jpg) no-repeat
-    background-size cover
+  & > *:not(:first-child)
+    margin-top 0.3rem
+
+  &__date
     display flex
-    align-items stretch
+    align-items baseline
+    flex-shrink 0
 
-  &__image
-    max-width 100%
-    max-height 100%
-    object-fit cover
+  &__day
+    font-family LatoLight, sans-serif
+    font-size 6rem
+    line-height 6rem
+    margin-right 0.5rem
 
-  &__preview
-    display flex
-    flex-direction column
-    align-items stretch
-    justify-content space-between
-    width 65%
-    padding 1.5rem
-    border-top-right-radius 0.3rem
-    border-bottom-right-radius 0.3rem
-    background-color color-first
-    color white
-    text-align left
-
-  &__description
-    display flex
-    flex-direction column
-    align-items stretch
-    overflow hidden
+  &__month
+    font-family LatoLight, sans-serif
+    font-size 2.5rem
 
   &__title
     font-family LatoBlack, sans-serif
@@ -44,30 +32,13 @@
     text-transform uppercase
     font-size 1.15rem
     overflow hidden
-    flex-shrink 0
     white-space nowrap
     text-overflow ellipsis
 
-  &__date
-    display flex
-    align-items baseline
-    justify-content space-around
-    flex-shrink 0
-
-  &__day
-    font-family LatoLight, sans-serif
-    font-size 6rem
-    line-height 6rem
-
-  &__month
-    font-family LatoLight, sans-serif
-    font-size 2.5rem
-
-  &__text
+  &__description
+    flex 1 1
     font-family LatoRegular, sans-serif
     overflow hidden
-    text-overflow ellipsis
 
   &__button-add
     text-align center
-    margin-top 0.5rem
