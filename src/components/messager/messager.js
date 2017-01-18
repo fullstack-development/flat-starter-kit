@@ -25,11 +25,11 @@ class Messager {
     $('.js-messager__btn-submit', this.$component).on('click', () => {
       const $chat = $('.js-messager__chat', this.$component);
       const $input = $('.js-messager__input', this.$component);
-      const message = $input.val();
+      let message = $input.val();
 
       if (message == '') return;
 
-      let $message = $(`<div class="messager__message messager__message_out"><span>${message}</span></div>`);
+      let $message = $(`<div class="messager__message messager__message_out">${message}</div>`);
       $chat.append($message);
 
       $input.val('');

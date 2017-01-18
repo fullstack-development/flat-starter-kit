@@ -39,7 +39,7 @@ mixin messager(options)
           .messager__chat.js-messager__chat
             for message in options.messages
               .messager__message(class = message.isIncoming ? 'messager__message_in' : 'messager__message_out')
-                span #{message.text}
+                | #{message.text}
       textarea.messager__input.js-messager__input
       .messager__btn-submit.js-messager__btn-submit
         +button({text: "reply"})
