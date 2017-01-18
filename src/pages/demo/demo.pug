@@ -18,7 +18,7 @@ include ../../components/news/news
 include ../../components/event/event
 include ../../components/location/location
 include ../../components/calendar/calendar
-include ../../components/messager/messager
+include ../../components/messenger/messenger
 
 block variables
   include ./demo-data
@@ -100,4 +100,4 @@ block main
         +calendar()
       +layout__container({mix: 'p-demo__column', align: 'right', display: 'block'})
         h2 messaging
-        +messager(locals.messagers[0])
+        +messenger(locals.messengers[0])

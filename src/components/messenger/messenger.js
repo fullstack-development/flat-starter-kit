@@ -1,8 +1,8 @@
-import './messager.styl';
+import './messenger.styl';
 import $ from 'jquery';
 import pugTemplate from './template.pug';
 
-class Messager {
+class Messenger {
   constructor($component) {
     this.$component = $component;
     this._hideScroll();
@@ -14,22 +14,22 @@ class Messager {
   }
 
   _hideScroll() {
-    const $scroller = $('.js-messager__chat-scroller', this.$component);
-    const $chat = $('.js-messager__chat', this.$component);
+    const $scroller = $('.js-messenger__chat-scroller', this.$component);
+    const $chat = $('.js-messenger__chat', this.$component);
     const scrollWidth = $scroller.width() - $chat.width();
 
     $scroller.css('margin-right', -scrollWidth + 'px');
   }
 
   _attachEventHandlers() {
-    $('.js-messager__btn-submit', this.$component).on('click', () => {
-      const $chat = $('.js-messager__chat', this.$component);
-      const $input = $('.js-messager__input', this.$component);
+    $('.js-messenger__btn-submit', this.$component).on('click', () => {
+      const $chat = $('.js-messenger__chat', this.$component);
+      const $input = $('.js-messenger__input', this.$component);
       let message = $input.val();
 
       if (message == '') return;
 
-      let $message = $(`<div class="messager__message messager__message_out">${message}</div>`);
+      let $message = $(`<div class="messenger__message messenger__message_out">${message}</div>`);
       $chat.append($message);
 
       $input.val('');
@@ -39,9 +39,9 @@ class Messager {
 
 
 $(() => {
-  $('.js-messager').each((index, node) => {
-    new Messager($(node));
+  $('.js-messenger').each((index, node) => {
+    new Messenger($(node));
   });
 });
 
-export default Messager;
+export default Messenger;
