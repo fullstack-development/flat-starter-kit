@@ -4,16 +4,15 @@ include ../../components/activity-card/activity-card
 include ../../components/news/news
 include ../../components/event/event
 
-append variables
-  include ./activity-data
-
 block title
   | Activity Page
 
 block main
+  - data = htmlWebpackPlugin.options.getData()
+
   +layout__container({mix: 'p-activity', wrap: 'wrap'})
     h1.p-activity__title News & events
-    for item in locals.activityes
+    for item in data.activityes
       +activity-card({image: item.image})
         if item.type === 'news'
           +news(item.data)

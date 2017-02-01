@@ -20,13 +20,12 @@ include ../../components/location/location
 include ../../components/calendar/calendar
 include ../../components/messenger/messenger
 
-block variables
-  include ./demo-data
-
 block title
   | Flat Starter Kit Demo
 
 block main
+  - data = htmlWebpackPlugin.options.getData()
+  
   +layout__container({mix: 'p-demo', basis: 700, align: 'center', wrap: 'wrap'})
     h2 standard buttons
     +layout__container({wrap: 'wrap', basis: 500, align: 'center'})
@@ -78,26 +77,26 @@ block main
       +layout__container({mix: 'p-demo__column', align: 'left', display: 'block'})
         h2 search / drop down
         +search()
-        +drop-down({items: locals.dropDownOptions, name: 'test'})
+        +drop-down({items: data.dropDownOptions, name: 'test'})
       +layout__container({mix: 'p-demo__column', align: 'right', display: 'block'})
         h2 user profile
         +layout__container({mix: 'p-demo__row', wrap: 'wrap'})
-          for profile in locals.profiles
+          for profile in data.profiles
             +user-profile(profile)
     h2 news & events
     +layout__container({wrap: 'wrap'})
       +layout__container({mix: 'p-demo__column', align: 'left', display: 'block'})
-        +activity-card({image: locals.news[0].image})
-          +news(locals.news[0])
+        +activity-card({image: data.news[0].image})
+          +news(data.news[0])
       +layout__container({mix: 'p-demo__column', align: 'right', display: 'block'})
-        +activity-card({image: locals.events[0].image})
-          +event(locals.events[0])
+        +activity-card({image: data.events[0].image})
+          +event(data.events[0])
     h2 location
-    +location(locals.location)
+    +location(data.location)
     +layout__container({wrap: 'wrap'})
       +layout__container({mix: 'p-demo__column', align: 'left', display: 'block'})
         h2 calendar
         +calendar()
       +layout__container({mix: 'p-demo__column', align: 'right', display: 'block'})
         h2 messaging
-        +messenger(locals.messengers[0])
+        +messenger(data.messengers[0])
