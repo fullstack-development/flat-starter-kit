@@ -1,0 +1,39 @@
+@import '~theme/variables.scss';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 8px;
+
+  @include media-breakpoint-up($xxs) {
+    font-size: 10px;
+  }
+
+  @include media-breakpoint-up($xs) {
+    font-size: 12px;
+  }
+}
+
+html,
+body {
+  height: 100%;
+}
+
+h1 {
+  text-align: center;
+  text-transform: uppercase;
+  font-family: LatoBlack, sans-serif;
+  font-size: 2rem;
+}
+
+h2 {
+  padding: 1rem;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: LatoBlack, sans-serif;
+  font-size: 1.67rem;
+}

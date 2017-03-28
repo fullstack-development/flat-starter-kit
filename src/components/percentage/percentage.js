@@ -1,4 +1,4 @@
-import './percentage.styl';
+import './percentage.scss';
 import $ from 'jquery';
 
 class Percentage {

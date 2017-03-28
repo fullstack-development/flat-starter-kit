@@ -1,1 +1,1 @@
-import './layout.styl'
+import './layout.scss'

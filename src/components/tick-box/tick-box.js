@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import './tick-box.styl';
+import './tick-box.scss';
 
 class TickBox {
   constructor($component) {

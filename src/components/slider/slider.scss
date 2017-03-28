@@ -1,0 +1,72 @@
+.slider {
+  & &__widget.ui-widget-content {
+    height: 0.4rem;
+    margin: 0.6rem 0.8rem;
+    border: none;
+    background-color: #e5e5e5;
+  }
+
+  & &__handle.ui-slider-handle {
+    top: -0.6rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-left: -0.8rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+
+    &:focus {
+      outline: none;
+    }
+
+    &.ui-state-active {
+      color: inherit;
+      border: none;
+    }
+  }
+
+  &__handle-tooltip {
+    position: absolute;
+    bottom: 140%;
+    display: none;
+    padding: 0.3rem 0.8rem;
+    transform: translateX(calc((-100% + 1.5rem) / 2));
+    color: white;
+    border-radius: 0.4rem;
+    background-color: inherit;
+    font-family: LatoBlack, sans-serif;
+    font-size: 1.1rem;
+    font-weight: bold;
+
+    &_active {
+      display: block;
+    }
+
+    &::before {
+      position: absolute;
+      bottom: -0.25rem;
+      left: calc(50% - 0.25rem);
+      display: block;
+      width: 0.5rem;
+      height: 0.5rem;
+      content: '';
+      transform: rotate(45deg);
+      border-bottom-right-radius: 1px;
+      background-color: inherit;
+    }
+  }
+
+  &__scale {
+    display: flex;
+    margin-top: 0.75rem;
+    padding: 0 0.4rem;
+    justify-content: space-between;
+  }
+
+  &__scale-item {
+    color: #d1d1d1;
+    font-family: LatoBlack, sans-serif;
+    font-size: 0.9rem;
+    font-weight: bold;
+  }
+}

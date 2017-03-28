@@ -1,0 +1,109 @@
+@import '~theme/variables.scss';
+
+.input {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+
+  &__element {
+    flex-grow: 1;
+    padding: 0.43rem 1rem;
+    color: #888;
+    border: none;
+    border-radius: 4px;
+    background-color: #e5e5e5;
+    font-family: SourceSansProRegular, sans-serif;
+    font-size: 1.2rem;
+
+    &:focus {
+      outline: 0.3rem auto #4d90fe;
+    }
+
+    &[type='checkbox'],
+    &[type='radio'] {
+      position: absolute;
+      left: 1rem;
+      width: 1px;
+      height: 1px;
+
+      @include firefox-only() {
+        visibility: hidden;
+      }
+    }
+  }
+
+  &__label {
+    display: flex;
+    align-items: center;
+  }
+
+  &__label-text {
+    padding: 0.43rem 1rem;
+    color: #888;
+    font-family: SourceSansProRegular, sans-serif;
+    font-size: 1.2rem;
+  }
+
+  &__toggle,
+  &__tick-box {
+    flex: 0 0 auto;
+  }
+
+  &__validation {
+    position: relative;
+    display: flex;
+    min-width: 6rem;
+    margin-left: 1rem;
+    border-radius: 4px;
+    justify-content: center;
+    align-items: center;
+
+    &::after {
+      position: absolute;
+      top: calc(50% - 0.25rem);
+      left: -0.25rem;
+      display: block;
+      width: 0.5rem;
+      height: 0.5rem;
+      content: '';
+      transform: rotate(45deg);
+      border-bottom-left-radius: 1px;
+      background-color: inherit;
+    }
+  }
+
+  &__validation-ok,
+  &__validation-error {
+    text-transform: uppercase;
+    color: white;
+    font-family: LatoBlack, sans-serif;
+    font-size: 0.9rem;
+    font-weight: bold;
+  }
+
+  &__element {
+    &:valid + .input__validation {
+      background-color: color-first;
+
+      & .input__validation-ok {
+        display: inline;
+      }
+
+      & .input__validation-error {
+        display: none;
+      }
+    }
+
+    &:invalid + .input__validation {
+      background-color: $color-second;
+
+      & .input__validation-ok {
+        display: none;
+      }
+
+      & .input__validation-error {
+        display: inline;
+      }
+    }
+  }
+}

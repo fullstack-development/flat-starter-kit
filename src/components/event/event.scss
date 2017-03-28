@@ -1,0 +1,84 @@
+@import '~theme/variables.scss';
+
+.event {
+  display: flex;
+  height: 17.65rem;
+  border-radius: 0.3rem;
+  align-items: stretch;
+
+  &__image-frame {
+    display: flex;
+    overflow: hidden;
+    width: 35%;
+    border-top-left-radius: 0.3rem;
+    border-bottom-left-radius: 0.3rem;
+    background: url(./img/default.jpg) no-repeat;
+    background-size: cover;
+    align-items: stretch;
+  }
+
+  &__image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+  }
+
+  &__preview {
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+    padding: 6.5% 7.5%;
+    text-align: left;
+    color: white;
+    border-top-right-radius: 0.3rem;
+    border-bottom-right-radius: 0.3rem;
+    background-color: $color-first;
+    align-items: stretch;
+    justify-content: space-between;
+  }
+
+  &__description {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  &__title {
+    overflow: hidden;
+    flex-shrink: 0;
+    text-transform: uppercase;
+    text-overflow: ellipsis;
+    font-family: LatoBlack, sans-serif;
+    font-size: 1.15rem;
+    font-weight: bold;
+  }
+
+  &__date {
+    display: flex;
+    flex-shrink: 0;
+    align-items: baseline;
+    justify-content: space-around;
+  }
+
+  &__day {
+    font-family: LatoLight, sans-serif;
+    font-size: 6rem;
+    line-height: 6rem;
+  }
+
+  &__month {
+    font-family: LatoLight, sans-serif;
+    font-size: 2.5rem;
+  }
+
+  &__text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: LatoRegular, sans-serif;
+  }
+
+  &__button-add {
+    margin-top: 5%;
+    text-align: center;
+  }
+}

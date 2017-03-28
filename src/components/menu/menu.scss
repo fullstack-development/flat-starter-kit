@@ -1,0 +1,77 @@
+@import '~theme/variables.scss';
+
+.menu {
+  position: relative;
+  display: flex;
+  flex: 1 0 auto;
+  justify-content: flex-end;
+
+  &__button {
+    display: flex;
+    padding: 0.4rem 0.6rem;
+    border: 1px solid white;
+    border-radius: 0.3rem;
+    background-color: $color-first;
+
+    @include media-breakpoint-up($sm) {
+      display: none;
+    }
+
+    &:hover {
+      background-color: $color-first-dark;
+    }
+
+    & svg {
+      width: 2.5rem;
+    }
+  }
+
+  &__list {
+    display: none;
+
+    @include media-breakpoint-up($sm) {
+      display: flex;
+    }
+
+    @include media-breakpoint-down($sm) {
+      &_open {
+        position: absolute;
+        z-index: 10;
+        top: 100%;
+        right: -2rem;
+        display: flex;
+        flex-direction: column;
+        padding: 1rem 2rem 2rem;
+        background-color: #4eb7a8;
+      }
+    }
+  }
+
+  &__item {
+    padding: 1rem 2rem;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+    border: 1px solid white;
+    border-radius: 0.3rem;
+    background-color: $color-first;
+    font-family: sans-serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+
+    &:not(:first-child) {
+      margin-top: 1rem;
+      margin-left: 0;
+
+      @include media-breakpoint-up($sm) {
+        margin-top: 0;
+        margin-left: 1rem;
+      }
+    }
+
+    &:hover {
+      background-color: $color-first-dark;
+    }
+  }
+}

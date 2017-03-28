@@ -1,0 +1,77 @@
+@import '~theme/variables.scss';
+
+.search {
+  font-family: SourceSansProRegular, sans-serif;
+  font-size: 1.2rem;
+
+  &_error &__text {
+    background-color: $color-second;
+
+    &[placeholder] {
+      text-overflow: ellipsis;
+    }
+
+    &::-webkit-input-placeholder {
+      text-overflow: ellipsis;
+      color: white;
+    }
+
+    &::-moz-placeholder {
+      text-overflow: ellipsis;
+      color: white;
+    }
+
+    &:-moz-placeholder {
+      text-overflow: ellipsis;
+      color: white;
+    }
+
+    &:-ms-input-placeholder {
+      text-overflow: ellipsis;
+      color: white;
+    }
+  }
+
+  &__form {
+    display: flex;
+    align-items: stretch;
+  }
+
+  &__text {
+    display: block;
+    width: 100%;
+    padding: 0.55rem 1rem;
+    resize: none;
+    transition: background-color 0.2s;
+    color: #888;
+    border: none;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    background-color: #e5e5e5;
+
+    &:focus {
+      outline: 0.3rem auto #4d90fe;
+    }
+  }
+
+  &__submit {
+    width: 3.2rem;
+    text-align: center;
+    border: none;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    background-color: $color-second;
+
+    &:focus {
+      outline: 0.3rem auto #4d90fe;
+    }
+
+    & svg {
+      width: 60%;
+
+      & path {
+        fill: white;
+      }
+    }
+  }
+}

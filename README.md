@@ -32,7 +32,7 @@ pages
 | |  activity.js
 | |  activity.pug
 | |  activity-data.pug
-| |  activity.styl
+| |  activity.scss
 └─── base
 | |  base.pug
 | |  base-data.pug
@@ -43,7 +43,7 @@ pages
 └─── signup
 | |  signup.js
 | |  signup.pug
-| |  signup.styl
+| |  signup.scss
 
 ```
 * `activity.pug`, `home.pug`, `signup.pug` are independent separated pages, extended from `pages/base/base.pug`, so they have `<html>`, `<head>`, `<body>` tags. 
@@ -57,7 +57,7 @@ components
 └─── arrow-button
 | |  arrow-button.pug
 | |  arrow-button.js
-| |  arrow-button.styl
+| |  arrow-button.scss
 | └─── img
 | | |  top.png
 | | |  left.png
@@ -67,7 +67,7 @@ components
 └─── calendar
 | |  calendar.pug
 | |  calendar.js
-| |  calendar.styl
+| |  calendar.scss
 | └─── img
 | | |  left.svg
 | | |  right.svg
@@ -76,8 +76,8 @@ components
 | | |  makeup-data.js
 ```
 * `components` contains only directories per component. 
-* Each component contains main `.pug` file with the template, `.js` that is dynamically loaded in the `entry.js` and contains all scripts for the component (and only the component) and `.styl` file.
-* `.styl` should be imported in the `.js` and contains **one BEM block** in the root of the files and all possible elements and modificators inside this block's definition.
+* Each component contains main `.pug` file with the template, `.js` that is dynamically loaded in the `entry.js` and contains all scripts for the component (and only the component) and `.scss` file.
+* `.scss` should be imported in the `.js` and contains **one BEM block** in the root of the files and all possible elements and modificators inside this block's definition.
 * `__tests__` is a special directory that contain all info regarding auto-testing, `makeup-data.js` is intended for Makeup visual declaration (see below), `index.pug` just to create samples of the component.
 
 ## How to work

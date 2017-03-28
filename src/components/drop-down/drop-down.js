@@ -1,4 +1,4 @@
-import './drop-down.styl';
+import './drop-down.scss';
 
 if (!$.fn.selectmenu) {
   require('jquery-ui/ui/widgets/selectmenu');

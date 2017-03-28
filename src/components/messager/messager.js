@@ -1,4 +1,4 @@
-import './messager.styl';
+import './messager.scss';
 import $ from 'jquery';
 
 class Messager {

@@ -1,0 +1,102 @@
+@import '~theme/variables.scss';
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  &__header {
+    display: flex;
+    flex: 0 0 auto;
+    background-color: $color-first;
+  }
+
+  &__main {
+    display: flex;
+    flex: 1 0 auto;
+  }
+
+  &__footer {
+    display: flex;
+    flex: 0 0 auto;
+    background-color: $color-second;
+  }
+
+  &__container {
+    display: flex;
+    flex: 1 1 100%;
+    align-content: flex-start;
+
+    @for $i from 1 to 80 {
+      $basis: $i * 50;
+
+      &_basis-#{$basis}.layout__container {
+        flex-basis: #{$basis}px;
+      }
+    }
+
+    @for $grow from 0 to 10 {
+      &_grow-#{$grow} {
+        flex-grow: $grow;
+      }
+    }
+
+    @for $shrink from 0 to 10 {
+      &_shrink-#{$shrink} {
+        flex-shrink: $shrink;
+      }
+    }
+
+    &_block {
+      display: block;
+    }
+
+    &_left {
+      flex-grow: 0;
+      margin-right: auto;
+    }
+
+    &_right {
+      flex-grow: 0;
+      margin-left: auto;
+    }
+
+    &_center {
+      flex-grow: 0;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    &_column {
+      flex-direction: column;
+
+      & > .layout__container {
+        flex-basis: auto;
+      }
+    }
+
+    &_column-reverse {
+      flex-direction: column-reverse;
+
+      & > .layout__container {
+        flex-basis: auto;
+      }
+    }
+
+    &_row-reverse {
+      flex-direction: row-reverse;
+    }
+
+    &_wrap {
+      flex-wrap: wrap;
+    }
+
+    &_wrap-reverse {
+      flex-wrap: wrap-reverse;
+    }
+
+    &_basis-auto.layout__container {
+      flex-basis: auto;
+    }
+  }
+}

@@ -1,4 +1,4 @@
-import './toggle.styl';
+import './toggle.scss';
 import $ from 'jquery';
 
 class Toggle {

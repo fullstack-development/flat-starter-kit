@@ -1,0 +1,69 @@
+@import '~theme/variables.scss';
+
+.feedback {
+  & > *:not(:first-child) {
+    margin-top: 1rem;
+  }
+
+  &__validation {
+    position: relative;
+    display: flex;
+    min-width: 6rem;
+    margin-left: 3%;
+    border-radius: 4px;
+    justify-content: center;
+    align-items: center;
+
+    &::after {
+      position: absolute;
+      left: -0.25rem;
+      display: block;
+      width: 0.5rem;
+      height: 0.5rem;
+      content: '';
+      transform: rotate(45deg);
+      border-bottom-left-radius: 1px;
+      background-color: inherit;
+    }
+  }
+
+  &__validation-ok,
+  &__validation-error {
+    text-transform: uppercase;
+    color: white;
+    font-family: LatoBlack, sans-serif;
+    font-size: 0.9rem;
+    font-weight: bold;
+  }
+
+  &__input-text,
+  &__input-email {
+    &:valid + .feedback__validation {
+      background-color: $color-first;
+
+      & .feedback__validation-ok {
+        display: inline;
+      }
+
+      & .feedback__validation-error {
+        display: none;
+      }
+    }
+
+    &:invalid + .feedback__validation {
+      background-color: $color-second;
+
+      & .feedback__validation-ok {
+        display: none;
+      }
+
+      & .feedback__validation-error {
+        display: inline;
+      }
+    }
+  }
+
+  &__submit {
+    text-align: right;
+  }
+}

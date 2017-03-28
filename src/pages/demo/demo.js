@@ -1,1 +1,1 @@
-import './demo.styl'
+import './demo.scss'

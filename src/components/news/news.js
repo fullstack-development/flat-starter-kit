@@ -1,1 +1,1 @@
-import './news.styl';
+import './news.scss';

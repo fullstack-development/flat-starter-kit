@@ -1,0 +1,88 @@
+@import '~theme/variables.scss';
+$toggle_height: 2rem;
+
+.toggle {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  width: ($toggle_height * 2.5);
+  height: $toggle_height;
+  cursor: pointer;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  transition: background-color 0.2s ease-in;
+  border-radius: ($toggle_height / 2);
+  background-color: #e5e5e5;
+
+  &__text {
+    position: absolute;
+    top: 0;
+    display: flex;
+    width: 200%;
+    height: $toggle_height;
+    margin-left: -100%;
+    transition: margin 0.2s ease-in;
+    align-items: center;
+  }
+
+  &__switcher {
+    width: $toggle_height;
+    padding: ($toggle_height / 8);
+    transition: width 0.2s ease-in;
+  }
+
+  &__switch {
+    width: ($toggle_height * 6 / 8);
+    height: ($toggle_height * 6 / 8);
+    margin-left: auto;
+    border-radius: 50%;
+    background-color: white;
+  }
+
+  &__text-on,
+  &__text-off {
+    float: left;
+    overflow: hidden;
+    width: 50%;
+    text-align: center;
+    text-transform: uppercase;
+    color: white;
+    font-family: LatoBlack, sans-serif;
+    font-size: ($toggle_height / 2);
+    font-weight: bold;
+  }
+
+  &__text-on {
+    padding-right: ($toggle_height * 6 / 8);
+  }
+
+  &__text-off {
+    padding-left: ($toggle_height * 6 / 8);
+  }
+
+  input:not(:checked) + & {
+    background-color: #e5e5e5;
+
+    & .toggle__text {
+      margin-left: -100%;
+    }
+
+    & .toggle__switcher {
+      width: $toggle_height;
+    }
+  }
+
+  input:checked + &,
+  &_on {
+    background-color: $color-first;
+
+    & .toggle__text {
+      margin-left: 0;
+    }
+
+    & .toggle__switcher {
+      width: 100%;
+    }
+  }
+}

@@ -1,4 +1,4 @@
-import './calendar.styl';
+import './calendar.scss';
 import $ from 'jquery';
 
 if (!$.fn.datepicker) {

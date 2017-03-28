@@ -1,4 +1,4 @@
-import './pie-chart.styl';
+import './pie-chart.scss';
 import $ from 'jquery';
 
 if (!$.fn.peity) {

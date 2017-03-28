@@ -1,1 +1,1 @@
-import './footer.styl';
+import './footer.scss';

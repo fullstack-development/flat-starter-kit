@@ -1,0 +1,32 @@
+@import '~theme/variables.scss';
+
+.percentage {
+  display: inline-flex;
+  width: 8rem;
+  height: 8rem;
+
+  &__active-border {
+    display: flex;
+    flex-basis: 100%;
+    padding: 5px;
+    border-radius: 50%;
+    background-color: $color-second;
+    background-image: linear-gradient(90deg, transparent 50%, #fff 50%), linear-gradient(90deg, #fff 50%, transparent 50%);
+  }
+
+  &__mask-circle {
+    display: flex;
+    flex-basis: 100%;
+    border-radius: 50%;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__percent {
+    margin-top: 0.3rem;
+    color: #9d9d9d;
+    font-family: LatoLight, sans-serif;
+    font-size: 3.25rem;
+  }
+}

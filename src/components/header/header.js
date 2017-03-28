@@ -1,1 +1,1 @@
-import './header.styl';
+import './header.scss';

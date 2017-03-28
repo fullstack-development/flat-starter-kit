@@ -1,0 +1,55 @@
+@import '~theme/variables.scss';
+
+.location {
+  position: relative;
+  z-index: 3000;
+  overflow: hidden;
+  border-radius: 0.3rem;
+
+  &__widget {
+    height: 17rem;
+
+    & > ymaps,
+    & > ymaps > ymaps {
+      width: 100% !important;
+    }
+  }
+
+  &__info {
+    display: flex;
+    padding: 3% 4.5%;
+    color: white;
+    background-color: $color-second;
+    font-family: LatoLight, sans-serif;
+    font-size: 2.5rem;
+    align-items: center;
+
+    & > *:not(:first-child) {
+      margin-left: 4%;
+    }
+  }
+
+  &__slogan {
+    flex-shrink: 0;
+  }
+
+  &__adress {
+    flex-grow: 1;
+    text-align: left;
+    text-transform: uppercase;
+    font-family: LatoBlack, sans-serif;
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+
+  &__icon {
+    display: flex;
+    flex-shrink: 0;
+    flex-basis: 2.2rem;
+    height: 2.2rem;
+
+    & svg path {
+      fill: white;
+    }
+  }
+}

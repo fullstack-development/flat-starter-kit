@@ -1,4 +1,4 @@
-import './menu.styl';
+import './menu.scss';
 import $ from 'jquery';
 
 class Menu {

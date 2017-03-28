@@ -1,4 +1,4 @@
-import './search.styl';
+import './search.scss';
 import $ from 'jquery';
 
 class Search {

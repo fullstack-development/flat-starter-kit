@@ -1,0 +1,41 @@
+@import '~theme/variables.scss';
+$tick-box_height: 2rem;
+
+.tick-box {
+  position: relative;
+  display: inline-flex;
+  width: $tick-box_height;
+  height: $tick-box_height;
+  transition: background-color 0.2s, color 0.2s;
+  border-radius: 50%;
+  background-color: #e5e5e5;
+  font-size: ($tick-box_height * 3 / 5);
+  justify-content: center;
+  align-items: center;
+
+  input:not(:checked) + & {
+    background-color: #e5e5e5;
+
+    & .tick-box__check-icon svg path {
+      fill: #c0c0c0;
+    }
+  }
+
+  input:checked + &,
+  &_enable {
+    background-color: $color-first;
+
+    & .tick-box__check-icon svg path {
+      fill: white;
+    }
+  }
+
+  &__check-icon {
+    width: 60%;
+    height: 60%;
+
+    & svg path {
+      fill: #c0c0c0;
+    }
+  }
+}

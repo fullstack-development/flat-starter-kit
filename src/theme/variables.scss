@@ -1,0 +1,53 @@
+/***** Variables *****/
+$xxs: 320px;
+$xs: 575px;
+$sm: 767px;
+$md: 991px;
+$lg: 1199px;
+$xl: 1440px;
+
+$color-first: #4eb7a8;
+$color-second: #e75735;
+$color-first-dark: #28a290;
+$color-second-dark: #bf3e1f;
+$color-disabled: #e5e5e5;
+
+/***** Mixins *****/
+@mixin media-breakpoint-up($width) {
+  @media (min-width: $width + 1) {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-down($width) {
+  @media (max-width: $width) {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-between($min-width, $max-width) {
+  @media (min-width: $min-width + 1) and (max-width: $max-width) {
+    @content;
+  }
+}
+
+@mixin column($screen-width, $count) {
+  flex-shrink: 0;
+  padding-right: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 1rem;
+
+  @include media-breakpoint-up($screen-width) {
+    flex-basis: (100% / 12 * $count);
+  }
+}
+
+@mixin firefox-only {
+  @at-root {
+    @-moz-document url-prefix() {
+      & {
+        @content;
+      }
+    }
+  }
+}

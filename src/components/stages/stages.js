@@ -1,4 +1,4 @@
-import './stages.styl';
+import './stages.scss';
 import $ from 'jquery';
 
 class Stages {

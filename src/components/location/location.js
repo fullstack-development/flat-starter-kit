@@ -1,4 +1,4 @@
-import './location.styl';
+import './location.scss';
 import $ from 'jquery';
 
 class Location {

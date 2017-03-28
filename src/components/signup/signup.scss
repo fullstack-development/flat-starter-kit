@@ -1,0 +1,30 @@
+.signup {
+  display: flex;
+  flex-direction: column;
+
+  & > *:not(:first-child):not([class*=error]) {
+    margin-top: 1rem;
+  }
+
+  &__confirm-error {
+    display: none;
+    margin-top: 0.2rem;
+    padding: 0.2rem 1rem;
+    color: #ab4027;
+    border-radius: 4px;
+    background-color: #eaccc4;
+    font-family: SourceSansProRegular, sans-serif;
+    font-size: 1.2rem;
+
+    &_active {
+      display: block;
+    }
+  }
+
+  &__submit {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+  }
+}

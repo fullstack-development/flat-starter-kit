@@ -1,0 +1,14 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+  "doiuse.browsers": [
+    "ie >= 11",
+    "last 2 versions"
+  ],
+  "doiuse.ignore": [
+    "css-resize",
+    "flexbox",
+    "rem",
+    "object-fit",
+    "css-mask"
+  ]
+}

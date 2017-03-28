@@ -1,0 +1,68 @@
+@import '~theme/variables.scss';
+
+.news {
+  display: flex;
+  height: 17.65rem;
+  border-radius: 0.3rem;
+  align-items: stretch;
+
+  &__image-frame {
+    display: flex;
+    overflow: hidden;
+    width: 35%;
+    border-top-left-radius: 0.3rem;
+    border-bottom-left-radius: 0.3rem;
+    background: url(./img/default.jpg) no-repeat;
+    background-size: cover;
+    align-items: stretch;
+  }
+
+  &__image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+  }
+
+  &__preview {
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+    padding: 8% 7.5%;
+    text-align: left;
+    color: white;
+    border-top-right-radius: 0.3rem;
+    border-bottom-right-radius: 0.3rem;
+    background-color: $color-second;
+    align-items: stretch;
+    justify-content: space-around;
+
+    & > *:not(:first-child) {
+      margin-top: 4%;
+    }
+  }
+
+  &__title {
+    overflow: hidden;
+    flex-shrink: 0;
+    text-overflow: ellipsis;
+    font-family: LatoLight, sans-serif;
+    font-size: 2.3rem;
+    line-height: 2.3rem;
+  }
+
+  &__date {
+    overflow: hidden;
+    flex-shrink: 0;
+    text-transform: uppercase;
+    text-overflow: ellipsis;
+    font-family: LatoBlack, sans-serif;
+    font-weight: bold;
+  }
+
+  &__description {
+    overflow: hidden;
+    flex-basis: 100%;
+    text-overflow: ellipsis;
+    font-family: LatoRegular, sans-serif;
+  }
+}

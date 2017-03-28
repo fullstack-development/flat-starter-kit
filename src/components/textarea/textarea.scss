@@ -1,0 +1,18 @@
+.textarea {
+  display: block;
+  width: 100%;
+  min-height: 7.3rem;
+  padding: 0.43rem 1rem;
+  padding-top: 0.8rem;
+  resize: none;
+  color: #888;
+  border: none;
+  border-radius: 4px;
+  background-color: #e5e5e5;
+  font-family: SourceSansProRegular, sans-serif;
+  font-size: 1.2rem;
+
+  &:focus {
+    outline: 0.3rem auto #4d90fe;
+  }
+}

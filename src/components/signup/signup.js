@@ -1,4 +1,4 @@
-import './signup.styl';
+import './signup.scss';
 import $ from 'jquery';
 
 class Signup {

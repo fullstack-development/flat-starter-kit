@@ -1,1 +1,1 @@
-import './event.styl';
+import './event.scss';

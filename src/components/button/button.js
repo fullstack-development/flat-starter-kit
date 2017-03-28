@@ -1,4 +1,4 @@
-import './button.styl';
+import './button.scss';
 import $ from 'jquery';
 
 class Button {

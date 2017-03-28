@@ -1,5 +1,5 @@
 import 'normalize.css';
-import './theme/global.styl';
+import './theme/global.scss';
 
 function requireAll(requireContext) {
     return requireContext.keys().map(requireContext);

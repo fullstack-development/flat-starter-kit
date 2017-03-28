@@ -7,6 +7,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
+const postcssReporter = require('postcss-reporter');
+const postcssEasyImport = require('postcss-easy-import');
+const postcssSCSS = require('postcss-scss');
+const autoprefixer = require('autoprefixer');
+const stylelint = require('stylelint');
+const doiuse = require('doiuse');
+
 const pages = [];
 
 fs
@@ -78,36 +85,42 @@ module.exports = new configurator.default().merge({
         ]
       },
       {
-        test: /\.styl/,
+        test: /\.scss$/,
         use: [
+          'style-loader',
+          'css-loader?importLoaders=1',
           {
-            loader: 'style-loader',
-          },
-          {
-            loader: 'css-loader',
+            loader: 'postcss-loader',
             options: {
-              importLoaders: 2,
-              sourceMap: false,
-            }
+              plugins: function () {
+                return [
+                  autoprefixer({browsers: ['last 2 versions']}),
+                ];
+              },
+            },
           },
+          'sass-loader',
           {
-            loader: 'autoprefixer-loader',
+            loader: 'postcss-loader',
             options: {
-              browsers: 'last 2 version',
-            }
+              syntax: postcssSCSS,
+              plugins: function () {
+                return [
+                  stylelint(),
+                  doiuse({
+                    browsers:['ie >= 11', 'last 2 versions'],
+                    ignore: ['flexbox', 'rem', 'css-resize', 'css-masks', 'object-fit'],
+                    ignoreFiles: ['**/normalize.css'],
+                  }),
+                  postcssReporter({
+                    clearReportedMessages: true,
+                    throwError: true,
+                  }),
+                ];
+              },
+            },
           },
-          {
-            loader: 'stylus-loader',
-            options: {
-              sourceMap: true,
-              paths: [path.resolve(__dirname, '..', 'src')],
-              import: [
-                // make this files global, so all styl files will be visible without includes
-                path.resolve(__dirname, '../src/theme/variables.styl'),
-              ]
-            }
-          },
-        ]
+        ],
       },
       {
         test: /\.pug$/,

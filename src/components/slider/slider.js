@@ -1,4 +1,4 @@
-import './slider.styl';
+import './slider.scss';
 import $ from 'jquery';
 
 if (!$.fn.slider) {

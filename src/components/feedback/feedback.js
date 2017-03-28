@@ -1,4 +1,4 @@
-import './feedback.styl';
+import './feedback.scss';
 import $ from 'jquery';
 
 class Feedback {
