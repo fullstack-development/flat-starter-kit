@@ -8,7 +8,6 @@ const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 const postcssReporter = require('postcss-reporter');
-const postcssEasyImport = require('postcss-easy-import');
 const postcssSCSS = require('postcss-scss');
 const autoprefixer = require('autoprefixer');
 const stylelint = require('stylelint');
