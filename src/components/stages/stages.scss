@@ -1,3 +1,5 @@
+@import '~theme/variables.scss';
+
 $stages__progress-bar_height: 0.4rem;
 $stages__item_radius: 2.4rem;
 
@@ -18,7 +20,7 @@ $stages__item_radius: 2.4rem;
   &__progress {
     width: 0;
     height: $stages__progress-bar_height;
-    background-color: color-second;
+    background-color: $color-second;
   }
 
   &__items {
@@ -45,7 +47,7 @@ $stages__item_radius: 2.4rem;
 
     &_completed {
       color: white;
-      background-color: color-second;
+      background-color: $color-second;
     }
   }
 }

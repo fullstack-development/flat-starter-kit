@@ -1,0 +1,30 @@
+.activity-card {
+  display: flex;
+  height: 17.65rem;
+  border-radius: 0.3rem;
+  align-items: stretch;
+
+  &__image-frame {
+    display: flex;
+    overflow: hidden;
+    flex: 3 1;
+    border-top-left-radius: 0.3rem;
+    border-bottom-left-radius: 0.3rem;
+    background: url(./img/default.jpg) no-repeat;
+    background-size: cover;
+    align-items: stretch;
+  }
+
+  &__image {
+    max-width: 100%;
+    object-fit: cover;
+  }
+
+  &__preview {
+    display: flex;
+    overflow: hidden;
+    flex: 1 0 12.5rem;
+    border-top-right-radius: 0.3rem;
+    border-bottom-right-radius: 0.3rem;
+  }
+}

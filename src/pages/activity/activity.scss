@@ -1,0 +1,15 @@
+@import '~theme/variables.scss';
+
+.p-activity {
+  &__title {
+    flex-basis: 100%;
+  }
+
+  & > *:not(:first-child) {
+    flex-basis: 100%;
+
+    @include column($xs, 6);
+    @include column($sm, 4);
+    @include column($md, 3);
+  }
+}

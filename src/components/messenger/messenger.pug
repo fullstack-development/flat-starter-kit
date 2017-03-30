@@ -7,7 +7,7 @@
 include ../user-profile/user-profile
 include ../button/button
 
-mixin messager(options)
+mixin messenger(options)
   if !options
     - options = {}
   if !options.user
@@ -15,31 +15,31 @@ mixin messager(options)
   if !options.messages
     - options.messages = []
 
-  .messager.js-messager
-    .messager__user
-      .messager__user-name #{options.user.name}
-      .messager__user-profile
+  .messenger.js-messenger
+    .messenger__user
+      .messenger__user-name #{options.user.name}
+      .messenger__user-profile
         +user-profile(options.user)
-    .messager__body
-      .messager__links
+    .messenger__body
+      .messenger__links
         a(
           href = '/mock-address/change-me'
           target = '_blank'
           rel = 'noopener noreferrer'
-        ).messager__link
+        ).messenger__link
           include ./img/message.svg
         a(
           href = '/mock-address/change-me'
           target = '_blank'
           rel = 'noopener noreferrer'
-        ).messager__link
+        ).messenger__link
           include ./img/photo-camera.svg
-      .messager__chat-wrapper
-        .messager__chat-scroller.js-messager__chat-scroller
-          .messager__chat.js-messager__chat
+      .messenger__chat-wrapper
+        .messenger__chat-scroller.js-messenger__chat-scroller
+          .messenger__chat.js-messenger__chat
             for message in options.messages
-              .messager__message(class = message.isIncoming ? 'messager__message_in' : 'messager__message_out')
-                span #{message.text}
-      textarea.messager__input.js-messager__input
-      .messager__btn-submit.js-messager__btn-submit
+              .messenger__message(class = message.isIncoming ? 'messenger__message_in' : 'messenger__message_out')
+                | #{message.text}
+      textarea.messenger__input.js-messenger__input
+      .messenger__btn-submit.js-messenger__btn-submit
         +button({text: "reply"})

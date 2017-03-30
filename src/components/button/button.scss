@@ -3,10 +3,11 @@
 .button {
   position: relative;
   display: inline-block;
-  overflow: hidden;
   padding-top: 0;
   padding-bottom: 0.25rem;
-  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   vertical-align: bottom;
   color: $color-first;
 
@@ -29,7 +30,7 @@
     font-weight: bold;
 
     &[type='submit']:focus {
-      outline: 0.3rem auto #4d90fe;
+      outline: 0.3rem auto #aaa;
     }
   }
 
@@ -72,16 +73,16 @@
     color: inherit;
     background-color: white;
   }
-}
 
-@keyframes ripple-animation {
-  from {
-    transform: scale(1);
-    opacity: 1;
-  }
+  @keyframes ripple-animation {
+    from {
+      transform: scale(1);
+      opacity: 1;
+    }
 
-  to {
-    transform: scale(50);
-    opacity: 0;
+    to {
+      transform: scale(50);
+      opacity: 0;
+    }
   }
 }

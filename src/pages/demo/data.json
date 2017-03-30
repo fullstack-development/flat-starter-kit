@@ -1,0 +1,82 @@
+{
+  "profiles": [
+    {
+      "login": "sara1",
+      "name": "Sarah Brown",
+      "profession": "developer"
+    },
+    {
+      "login": "john1",
+      "name": "John Smith",
+      "profession": "ux designer",
+      "photo": "face1.jpg",
+      "facebook": "https://fb.com"
+    },
+    {
+      "login": "sara2",
+      "name": "Sarah Brown",
+      "profession": "developer",
+      "photo": "face2.jpg",
+      "twitter": "https://twitter.com"
+    }
+  ],
+  "dropDownOptions": [
+    {
+      "name": "Choose an option"
+    },
+    {
+      "name": "First option"
+    },
+    {
+      "name": "Second option"
+    },
+    {
+      "name": "Third option"
+    }
+  ],
+  "news": [
+    {
+      "image": "img1.jpg",
+      "title": "It's all going downhill",
+      "date": "24 august 2013",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    }
+  ],
+  "events": [
+    {
+      "image": "img1.jpg",
+      "title": "This is the title",
+      "dateDay": "24",
+      "dateMonth": "August",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    }
+  ],
+  "messengers": [
+    {
+      "user": {
+        "login": "john1",
+        "name": "John Smith",
+        "profession": "ux designer",
+        "photo": "face1.jpg",
+        "facebook": "https://fb.com"
+      },
+      "messages": [
+        {
+          "isIncoming": true,
+          "text": "Hey! So are we cool to meet at the art gallery? Say 8pm"
+        },
+        {
+          "isIncoming": false,
+          "text": "Ok))"
+        }
+      ]
+    }
+  ],
+  "location": {
+    "coord": [
+      56.4531907,
+      84.9756513
+    ],
+    "address": "Tomsk, Krasnoarmeyskaya, 147<br/> office 201"
+  }
+}

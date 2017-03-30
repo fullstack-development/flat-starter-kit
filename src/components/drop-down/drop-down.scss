@@ -1,8 +1,8 @@
-$drop-down-height: 2.3rem;
+$dropDownHeight: 2.3rem;
 
 .drop-down {
   display: block;
-  height: $drop-down-height;
+  height: $dropDownHeight;
 
   & .ui-button.ui-selectmenu-button {
     display: block;
@@ -10,6 +10,10 @@ $drop-down-height: 2.3rem;
     width: auto;
     border-radius: 0.3rem;
     background-color: #e5e5e5;
+
+    &:focus {
+      outline: 0.3rem auto #bbb;
+    }
 
     &-open {
       border-bottom-right-radius: 0;
@@ -24,7 +28,7 @@ $drop-down-height: 2.3rem;
   & .ui-selectmenu-icon {
     display: flex;
     width: 2.8rem;
-    height: $drop-down-height;
+    height: $dropDownHeight;
     background-color: #4eb7a8;
     justify-content: center;
 
@@ -39,14 +43,14 @@ $drop-down-height: 2.3rem;
   }
 
   & .ui-selectmenu-text {
-    height: $drop-down-height;
+    height: $dropDownHeight;
     margin-right: 2.8rem;
     padding-left: 1.1rem;
     vertical-align: middle;
     color: #888;
     font-family: sans-serif;
     font-size: 1.1rem;
-    line-height: $drop-down-height;
+    line-height: $dropDownHeight;
   }
 }
 
@@ -73,3 +77,4 @@ $drop-down-height: 2.3rem;
     }
   }
 }
+

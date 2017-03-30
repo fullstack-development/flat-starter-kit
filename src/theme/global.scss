@@ -23,17 +23,19 @@ body {
   height: 100%;
 }
 
-h1 {
+h1,
+h2 {
   text-align: center;
   text-transform: uppercase;
+  color: #777;
   font-family: LatoBlack, sans-serif;
+}
+
+h1 {
   font-size: 2rem;
 }
 
 h2 {
   padding: 1rem;
-  text-align: center;
-  text-transform: uppercase;
-  font-family: LatoBlack, sans-serif;
   font-size: 1.67rem;
 }

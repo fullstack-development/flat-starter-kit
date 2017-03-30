@@ -7,12 +7,14 @@ module.exports = new configurator.default()
   .extend({
     'conf/webpack.development.config.js': config => {
       config.plugins = config.plugins.filter((item) => {
-        return !(item instanceof HtmlWebpackPlugin)
+        return !((item instanceof HtmlWebpackPlugin) || (item instanceof CleanPlugin))
       });
-      config.plugins.concat([
-        new HtmlWebpackPlugin({ alwaysWriteToDisk: true }),
-        new CleanPlugin(['./distTest'], { root: path.resolve(__dirname, '..') }),
-      ]);
+      config.plugins.unshift(
+        new CleanPlugin(['./distTests'], { root: path.resolve(__dirname, '..') })
+      );
+      config.plugins.push(
+        new HtmlWebpackPlugin({ alwaysWriteToDisk: true })
+      );
 
       return config;
     }
@@ -23,6 +25,7 @@ module.exports = new configurator.default()
       path: path.resolve(__dirname, '..', 'distTests'),
     },
     devServer: {
-      contentBase: 'distTests'
+      port: 8090,
+      contentBase: 'distTests',
     },
   });

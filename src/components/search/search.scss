@@ -50,7 +50,7 @@
     background-color: #e5e5e5;
 
     &:focus {
-      outline: 0.3rem auto #4d90fe;
+      outline: 0.3rem auto #bbb;
     }
   }
 
@@ -63,7 +63,7 @@
     background-color: $color-second;
 
     &:focus {
-      outline: 0.3rem auto #4d90fe;
+      outline: 0.3rem auto #aaa;
     }
 
     & svg {

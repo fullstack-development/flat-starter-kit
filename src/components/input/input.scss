@@ -7,6 +7,7 @@
 
   &__element {
     flex-grow: 1;
+    width: 10rem;
     padding: 0.43rem 1rem;
     color: #888;
     border: none;
@@ -16,7 +17,7 @@
     font-size: 1.2rem;
 
     &:focus {
-      outline: 0.3rem auto #4d90fe;
+      outline: 0.3rem auto #bbb;
     }
 
     &[type='checkbox'],
@@ -83,7 +84,7 @@
 
   &__element {
     &:valid + .input__validation {
-      background-color: color-first;
+      background-color: $color-first;
 
       & .input__validation-ok {
         display: inline;

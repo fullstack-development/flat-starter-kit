@@ -1,0 +1,58 @@
+@import '~theme/variables.scss';
+
+.p-messages {
+  & > * {
+    flex-basis: 100%;
+  }
+
+  &__contacts {
+    display: flex;
+    overflow: hidden;
+    flex-wrap: wrap;
+    align-items: stretch;
+
+    @include column($xs, 4);
+
+    @include media-breakpoint-up($xs) {
+      flex-direction: column;
+      flex-wrap: nowrap;
+    }
+  }
+
+  &__contact-item {
+    overflow: hidden;
+    margin: 0.5rem;
+    padding: 1rem 2rem;
+    text-align: center;
+    white-space: nowrap;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    color: #fff;
+    border-radius: 0.3rem;
+    background-color: #4eb7a8;
+    font-family: sans-serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+
+    @include media-breakpoint-up($xs) {
+      margin: 0;
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    &:hover:not([class*=active]) {
+      color: white;
+      background-color: #28a290;
+    }
+
+    &_active {
+      color: #4eb7a8;
+      border: 1px solid #4eb7a8;
+      background-color: white;
+    }
+  }
+
+  &__messenger {
+    @include column($xs, 8);
+  }
+}

@@ -1,0 +1,16 @@
+//-
+  options.image - обложка
+
+mixin activity-card(options)
+  if !options
+    - options = {}
+
+  .activity-card
+    .activity-card__image-frame
+      if options.image
+        img.activity-card__image(
+        src = require('../../components/activity-card/img/' + options.image),
+        alt = 'activity image'
+        )
+    .activity-card__preview
+      block

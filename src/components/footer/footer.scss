@@ -1,19 +1,26 @@
 .footer {
   display: flex;
-  flex: 1 0 auto;
+  flex: 1;
   padding: 2rem;
   color: white;
   font-family: sans-serif;
   font-size: 1.2rem;
   justify-content: space-between;
+  align-items: center;
 
   &__nav {
     display: flex;
+    flex: 1;
     flex-wrap: wrap;
   }
 
   &__nav-item {
     margin-right: 1.5rem;
+    white-space: nowrap;
     color: white;
+  }
+
+  &__copyright {
+    white-space: nowrap;
   }
 }
